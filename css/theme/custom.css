@@ -295,8 +295,9 @@ body {
 .reveal .warning {
   background-color: red;
   color: black;
+  padding: 0.15em;
   position: absolute;
-  top: 650px;
+  top: 630px;
   width: 100%; }
 
 .reveal a {

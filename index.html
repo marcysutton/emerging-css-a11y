@@ -28,8 +28,8 @@
 		<div class="reveal">
 			<div class="slides">
 				<section data-background-image="images/space-jam.jpg" data-transition="none">
-					<h1 class="warning h4-style">Warning: there are some large GIF files in this presentation.</h1>
 					<h1 class="visually-hidden">Space Jam, a 1996 website</h1>
+					<h2 class="warning h4-style">Warning: there are some large GIF files in this presentation.</h2>
 				</section>
 				<section data-background-image="images/space-jam-focused.jpg" data-transition="none">
 					<h1 class="visually-hidden">Space Jam: it had focus states!</h1>
@@ -81,9 +81,6 @@
 				</section>
 				<section data-background-image="images/sifr1-intro.jpg" data-transition="none" data-background-position="top center">
 					<h1 class="visually-hidden">sIFR 2.0: Rich Accessible Typography for the Masses</h1>
-				</section>
-				<section data-background-image="images/sifr2-howitworks.png" data-transition="none" data-background-position="top center">
-					<h1 class="visually-hidden">sIFR: How it Works</h1>
 				</section>
 				<section data-background-image="images/sifr3-accessibility.png" data-transition="none" data-background-position="top center">
 					<div class="visually-hidden">
@@ -176,7 +173,7 @@
 						<li>Alignment control</li>
 						<li>Control of overlapping content</li>
 					</ul>
-					<p class="fragment" style="margin-top: 1.5em;">Just read everything from <a href="https://twitter.com/rachelandrew">@RachelAndrew</a></p>
+					<p class="fragment" style="margin-top: 1.5em;">Just read everything from <a href="https://twitter.com/rachelandrew">@RachelAndrew</a> and <a href="https://twitter.com/JenSimmons">@JenSimmons</a></p>
 					<p class="fragment">And <a href="https://www.matuzo.at/blog/the-dark-side-of-the-grid/">Dark Side of the Grid</a> from <a href="https://twitter.com/mmatuzo">@mmatuzo</a></p>
 					<aside class="notes">
 						<p>A grid is an intersecting set of horizontal and vertical lines – one set defining columns, and the other, rows. Elements can be placed onto the grid, within these column and row lines.</p>
@@ -261,13 +258,13 @@
 				<section>
 					<h2 class="h1-style">:focus-visible</h2>
 					<pre><code class="css">
-	:focus:not(:focus-visible) {
-	    outline: 0;
-	}
-
-	:focus-visible {
-	    outline: 3px solid greenyellow;
-	}
+ :focus:not(.focus-visible) {
+	outline: 0;
+ }
+ :focus-visible,
+ data-focus-visible-added {
+	outline: 3px solid greenyellow;
+ }
 					</code></pre>
 					<div class="focus-visible-example">
 						<button>&lt;button&gt;</button>
@@ -342,11 +339,6 @@
 					<h3>CSS Animation example</h3>
 					<div class="halfCol">
 						<pre><code class="css">
-75% {
-	font-size: 300%;
-	margin-left: 25%;
-	width: 150%;
-}
 p {
 	animation-duration: 3s;
 	animation-name: slidein;
@@ -391,9 +383,9 @@ p {
 					<h3>Automated Testing Tips</h3>
 					<ul>
 						<li>Asserting keyboard focus in animated regions is hard</li>
-						<li class="fragment">You could try the <code>transitionend</code> <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionend_event">event</a></li>
+						<li class="fragment">You could try the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API">Web Animations API</a></li>
+						<li class="fragment">Or the <code>transitionend</code> <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionend_event">event</a></li>
 						<li class="fragment">Or a big negative CSS <code>transition-delay</code></li>
-						<li class="fragment">Or the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API">Web Animations API</a></li>
 					</ul>
 				</section>
 				<section>
@@ -430,9 +422,10 @@ p {
 				</section>
 				<section>
 					<h2>Thanks, CSUN!</h2>
-					<p>Slides: <a href="https://github.com/marcysutton/emerging-css-a11y">https://github.com/marcysutton/emerging-css-a11y</a></p>
+					<p>Slides: <a href="https://marcysutton.github.io/emerging-css-a11y">https://marcysutton.github.io/emerging-css-a11y</a></p>
 					<p>Twitter: <a href="https://twitter.com/marcysutton">https://twitter.com/marcysutton</a></p>
 					<p>Email: <a href="mailto:marcy@gatsbyjs.com">marcy@gatsbyjs.com</a></p>
+					<p style="margin-top:1em"><a href="https://marcysutton.com/prototype-testing-accessible-clientside-routing/">Bonus: Prototyping Accessible JavaScript Routing</a> (get in touch!)</p>
 				</section>
 			</div>
 		</div>

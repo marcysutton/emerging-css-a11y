@@ -47,8 +47,9 @@ $mobile: 'screen and (max-width: 600px)';
   .warning {
     background-color: red;
     color: black;
+    padding: 0.15em;
     position: absolute;
-    top: 650px;
+    top: 630px;
     width: 100%;
   }
   a {
