@@ -1,0 +1,475 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Emerging CSS and Accessibility</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link href="https://fonts.googleapis.com/css?family=Spectral:800,800i" rel="stylesheet">
+		<link rel="stylesheet" href="css/theme/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="plugin/accessibility/helper.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="images/space-jam.jpg" data-transition="none">
+					<h1 class="warning h4-style">Warning: there are some large GIF files in this presentation.</h1>
+					<h1 class="visually-hidden">Space Jam, a 1996 website</h1>
+				</section>
+				<section data-background-image="images/space-jam-focused.jpg" data-transition="none">
+					<h1 class="visually-hidden">Space Jam: it had focus states!</h1>
+				</section>
+				<section data-background-image="https://marcy.codes/slides/emerging-css-a11y/images/space-jam-inspect.gif" data-transition="none">
+					<h1 class="visually-hidden">Inspecting Space Jam in Chrome DevTools</h1>
+				</section>
+				<section data-background-image="images/captain-marvel.jpg" data-transition="none">
+					<h1 class="visually-hidden">Captain Marvel: it's new but made to look old!</h1>
+				</section>
+				<!--<section data-background-image="https://marcy.codes/slides/emerging-css-a11y/images/captain-marvel-inspect.gif" data-transition="none">
+					<h1 class="visually-hidden">Inspecting Captain Marvel in Chrome DevTools</h1>
+				</section>-->
+				<section data-state="title-slide">
+					<h1>Emerging CSS Techniques &amp;&nbsp;What They Mean for&nbsp;Accessibility</h1>
+					<h2>By Marcy Sutton<br />
+						Head of Learning, Gatsby.js</h2>
+				</section>
+				<section>
+					<h1>Who is Marcy Sutton?</h1>
+					<ul>
+						<li>I work at Gatsby</li>
+						<li>Used to work at Deque, Adobe, Substantial, POP Agency</li>
+						<li>Went to art school</li>
+						<li>Thought I would be a photojournalist</li>
+						<li>But it turned out I really love the web</li>
+					</ul>
+				</section>
+				<section data-background-image="images/marcysutton-v1.jpg" data-transition="none" data-background-position="center center">
+					<h1 class="visually-hidden">MarcySutton.com in 2008</h1>
+				</section>
+				<section data-background-image="https://marcy.codes/slides/emerging-css-a11y/images/marcysutton-v1-inspect.gif" data-transition="none" data-background-position="center center">
+					<h1 class="visually-hidden">MarcySutton.com in 2008: It used tables and spacer images</h1>
+				</section>
+				<section data-background-image="images/marcysutton-2011.jpg" data-transition="none">
+					<h1 class="visually-hidden">MarcySutton.com in 2011</h1>
+					<aside class="notes">
+						v2 was a gritty interactive Post Alley in between this and the white themed one, it used Flash and I can't even load it anymore!
+					</aside>
+				</section>
+				<section data-background-image="images/marcysutton-2011-about.jpg" data-transition="none">
+					<h1 class="visually-hidden">MarcySutton.com About page in 2011</h1>
+				</section>
+				<section data-background-image="https://marcy.codes/slides/emerging-css-a11y/images/marcysutton-2011-cufon.gif" data-transition="none">
+					<h1 class="visually-hidden">MarcySutton.com in 2011: It used the Cufon font rendering technique</h1>
+				</section>
+				<section data-background-image="images/cufon.png" data-transition="none">
+					<h1 class="visually-hidden">Cufon: fonts for the people (discontinued)</h1>
+				</section>
+				<section data-background-image="images/sifr1-intro.jpg" data-transition="none" data-background-position="top center">
+					<h1 class="visually-hidden">sIFR 2.0: Rich Accessible Typography for the Masses</h1>
+				</section>
+				<section data-background-image="images/sifr2-howitworks.png" data-transition="none" data-background-position="top center">
+					<h1 class="visually-hidden">sIFR: How it Works</h1>
+				</section>
+				<section data-background-image="images/sifr3-accessibility.png" data-transition="none" data-background-position="top center">
+					<div class="visually-hidden">
+						<h1 class="visually-hidden">sIFR: Accessibility</h1>
+						<p>sIFR is fully accessible to screenreaders and other assistive technology. Don’t take our word for it. Ask Matt May of the W3C who endorses it as an accessible method to create rich typography on the web. Or ask Joe Clark, one of the world’s leading accessibility experts, whose interest in typography is only trumped by his interest in accessibility.</p>
+					</div>
+				</section>
+				<section>
+					<h2>Who remembers JavaScript rounded&nbsp;corners?</h2>
+					<p><span class="emoji" aria-label="woman raising her hand">🙋‍♀️</span></p>
+					<aside class="notes">
+						back in the &lt; IE9 days....
+					</aside>
+				</section>
+				<section>
+					<h2>PSD sliced table layouts with text embedded in images?</h2>
+					<p><span class="emoji" aria-label="woman raising both hands">🙆‍♀️</span></p>
+				</section>
+				<section>
+					<h2>All Flash everything?</h2>
+					<p><span class="emoji" aria-label="woman crossing her arms">🙅‍♀️</span></p>
+				</section>
+				<section data-state="inverted">
+					<h2 class="all-caps h1-style">CSS is so much better&nbsp;now</h2>
+				</section>
+				<section>
+					<h2>And we have great debugging tools!</h2>
+					<img src="images/chrome-color-picker.png" alt="Chrome color picker in DevTools" />
+				</section>
+				
+				<section>
+					<p class="all-caps">Today</p>
+					<h1 class="fancy-headline">
+						Let’s talk about NEW CSS<br />
+						<span class="minimize">and</span><br />
+						<span class="subhead">Accessible User Experience</span>
+					</h1>
+					<aside class="notes">
+						CSS GIF ?
+					</aside>
+				</section>
+				<section data-state="dark">
+					<ul class="wordcloud">
+						<li class="size1 grid">CSS Grid</li>
+						<li class="size3 flexbox">Flexbox</li>
+						<li class="size2 focus-visible">:focus-visible</li>
+						<li class="size4 focus-within">:focus-within</li>
+						<li class="size3 css-animations">CSS Animations</li>
+						<li class="size2 reduced-motion">prefers-reduced-motion</li>
+						<li class="size2 asterisk">*</li>
+					</ul>
+					<aside class="notes">
+						And much more that we don't have time to get into! Hence the asterisk.
+					</aside>
+				</section>
+				<section>
+					<h2 class="h1-style">CSS Grid Layout</h2>
+					<p><span class="emoji" aria-label="raised hands">🙌</span></p>
+					<aside class="notes">
+					Specification for two-dimensional web layout with CSS
+					</aside>
+				</section>
+				<section>
+					<div class="halfCol">
+						<img src="images/Radio_News_Nov_1928_pg424.jpg"
+							alt="Newspaper layout for Radio News, November 1928"
+							style="transform: scale(0.9, 0.9); transform-origin: top;"
+						/>
+					</div>
+					<div class="halfCol">
+						<h3 class="fragment h3-style" style="margin-top: 1em">How to lay pages out before CSS&nbsp;Grid</h3>
+						<ul>
+							<li class="fragment">Layout tables</li>
+							<li class="fragment">Floats</li>
+							<li class="fragment">Multi-column layout</li>
+							<li class="fragment">display: inline-block</li>
+							<li class="fragment">Absolute positioning</li>
+							<li class="fragment">Padding hacks</li>
+							<li class="fragment">Manually splitting text content</li>
+						</ul>
+						<aside class="notes">Extra markup soup...probably</aside>
+					</div>
+				</section>
+				<section>
+					<h3 class="h2-style">Grid Concepts</h3>
+					<ul>
+						<li>Fixed and flexible track sizes</li>
+						<li>Item placement</li>
+						<li>Creation of additional tracks to hold content</li>
+						<li>Alignment control</li>
+						<li>Control of overlapping content</li>
+					</ul>
+					<p class="fragment" style="margin-top: 1.5em;">Just read everything from <a href="https://twitter.com/rachelandrew">@RachelAndrew</a></p>
+					<p class="fragment">And <a href="https://www.matuzo.at/blog/the-dark-side-of-the-grid/">Dark Side of the Grid</a> from <a href="https://twitter.com/mmatuzo">@mmatuzo</a></p>
+					<aside class="notes">
+						<p>A grid is an intersecting set of horizontal and vertical lines – one set defining columns, and the other, rows. Elements can be placed onto the grid, within these column and row lines.</p>
+					</aside>
+				</section>
+				<section>
+					<h3 class="visually-hidden">A real life site example: MarcySutton.com</h3>
+					<div class="halfCol">
+						<img src="images/marcysutton.com.jpg"
+							alt="The new MarcySutton.com laid out in Illustrator - top half"
+							style="margin: 0;"
+						/>
+					</div>
+					<div class="halfCol">
+						<img src="images/marcysutton.com.jpg"
+							class="fragment"
+							alt="The new MarcySutton.com laid out in Illustrator - bottom half"
+							style="margin: -760px 0 0;"
+						/>
+					</div>
+				</section>
+				<section data-background-image="images/grid-inspector.jpg" data-transition="none">
+					<h3 class="visually-hidden">MarcySutton.com in Firefox Grid inspector</h3>
+					<p class="visually-hidden">The "nav-wrap" element in the header uses display: grid, grid-template-columns: 225px 1fr, and width: auto. It contains the MarcySutton.com logo and navigation items.</p>
+				</section>
+				<section data-background-image="images/grid-firefox-list.jpg" data-transition="none">
+					<h3 class="visually-hidden">List of talks on MarcySutton.com in Firefox Grid inspector</h3>
+					<p class="visually-hidden">an unordered list has display: grid, grid-template-columns: repeat(3, 1fr), and grid-gap: 1em. It falls back to CSS column layout for IE11.</p>
+				</section>
+				<section data-background-image="images/grid-firefox-a11y.jpg" data-transition="none">
+					<h3 class="visually-hidden">Grid list of talks still has the list role</h3>
+				</section>
+				<section>
+					<h3 class="h2-style">Lesson 1: use mini-grids inside your semantic markup</h3>
+					<p class="fragment">* Until we have <a href="https://rachelandrew.co.uk/archives/2018/04/27/grid-level-2-and-subgrid/">subgrids</a></p>
+					<aside class="notes">
+						And Firefox Grid Inspector is awesome.
+					</aside>
+				</section>
+				<section>
+					<h3 class="h2-style">Lesson 2: always check to make sure roles aren't being overridden</h3>
+					<p><code>display:contents</code> and <code>table {display: block}</code> come to mind...</p>
+					<p class="fragment" style="margin-top: 1em;"><a href="https://hiddedevries.nl/en/blog/2018-04-21-more-accessible-markup-with-display-contents">Hidde de Vries on Grid and display: contents</a></p>
+				</section>
+				<section>
+					<h3><span aria-hidden="true">🚨</span> CSS Grid Order <span aria-label="alert">🚨</span></h3>
+					<blockquote>
+						Grid layout gives authors great powers of rearrangement over the *visual* document. However, these are not a substitute for correct ordering of the document&nbsp;source.
+						<cite>- <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility">MDN web docs</a></cite>
+					</blockquote>
+					<img src="images/grid-order.jpg" alt="Rearranged DIVs" style="width: 50%;" />
+					<p class="smaller">* this also applies to Flexbox</p>
+				</section>
+				<section data-background-image="images/caniuse-css-grid.jpg" data-background-position="top">
+					<h3 class="visually-hidden">Caniuse.com for CSS Grid</h3>
+				</section>
+				<section>
+					<h2 class="h1-style">Flexbox</h2>
+					<blockquote>
+						In the flex layout model, the children of a flex container can be laid out in any direction, and can “flex” their sizes, either growing to fill unused space or shrinking to avoid overflowing the parent.
+						<cite><a href="https://www.w3.org/TR/css-flexbox-1/">https://www.w3.org/TR/css-flexbox-1/</a></cite>
+					</blockquote>
+				</section>
+				<section data-background-image="images/css-tricks-flexbox.jpg" data-background-position="top">
+					<h3 class="visually-hidden">CSS Flexbox Guide on CSS Tricks</h3>
+					<p style="margin-top: -480px;">
+						<a style="background-color:black; display: inline-block; padding: 0.2em;" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a>
+					</p>
+				</section>
+				<section>
+					<blockquote>
+						<h3>If you are adding widths to all your flex items, you probably need grid.</h3>
+						<cite>-Rachel Andrew</cite>
+					</blockquote>
+				</section>
+				<section data-background-image="images/marcysutton.com-flexbox.jpg" data-background-position="top">
+					<h3 class="visually-hidden">Flexbox on MarcySutton.com - nav links</h3>
+				</section>
+				<section data-background-image="images/caniuse-flexbox.jpg" data-background-position="top">
+					<h3 class="visually-hidden">Caniuse.com for CSS Flexbox</h3>
+				</section>
+				<section>
+					<h2 class="h1-style">:focus-visible</h2>
+					<pre><code class="css">
+	:focus:not(:focus-visible) {
+	    outline: 0;
+	}
+
+	:focus-visible {
+	    outline: 3px solid greenyellow;
+	}
+					</code></pre>
+					<div class="focus-visible-example">
+						<button>&lt;button&gt;</button>
+						<div role="button" tabindex="0">div[role=button]</div>
+						<p>
+							<label><input type="checkbox" onchange="toggleClass(event)" /> Enable pseudo class styles (in Chrome)</label>
+						</p>
+					</div>
+					<script>
+						function toggleClass(event) {
+							var example = document.querySelector('.focus-visible-example');
+							if (event.target.checked) {
+								example.classList.add('focus-visible-enabled');
+							} else {
+								example.classList.remove('focus-visible-enabled');
+							}
+						}
+					</script>
+				</section>
+				<section data-background-image="images/angular-material-button-focus.jpg" data-background-position="top">
+					<h3 class="visually-hidden">Angular Material issue number 556 on Github: "md-button stays focused after a click"</h3>
+				</section>
+				<section data-background-image="images/button-focus-hell.jpg" data-background-position="top">
+					<h3 class="visually-hidden">Button Focus Hell</h3>
+				</section>
+				<section>
+					<blockquote>
+						The :focus-visible pseudo-class applies while an element matches the :focus pseudo-class and the user agent determines via heuristics that the focus should be made evident on the element.
+						<cite><a href="https://drafts.csswg.org/selectors-4/#the-focus-visible-pseudo">https://drafts.csswg.org/selectors-4/#the-focus-visible-pseudo</a></cite>
+					</blockquote>
+				</section>
+				<section>
+					<h3 class="h2-style">But why tho?</h3>
+					<blockquote>
+						Note: The intent of :focus-visible is to allow authors to provide clearly identifiable focus styles which are visible when a user is likely to need to understand where focus is, and not visible in other cases.
+					</blockquote>
+					<h4 class="fragment h3-style">More specific tools at our disposal prevent <code>outline: none</code></h4>
+				</section>
+				<section data-background-image="images/caniuse-focus-visible.jpg" data-background-position="top">
+					<h3 class="visually-hidden">Caniuse.com for CSS focus-visible</h3>
+				</section>
+				<section>
+					<h2 class="h1-style">:focus-within</h2>
+					<pre><code class="css">
+	/* Selects a &lt;div> when one of its descendants is focused */
+	div:focus-within {
+	    background: greenyellow;
+	}
+					</code></pre>
+					<div class="focus-within-example">
+						<ul>
+							<li><a href="#">Item 1</a></li>
+							<li><a href="#">Item 2</a></li>
+						</ul>
+					</div>
+				</section>
+				<section data-background-image="images/caniuse-focus-within.jpg" data-background-position="top">
+					<h3 class="visually-hidden">Caniuse.com for CSS focus-within</h3>
+				</section>
+				<section>
+					<h2 class="h1-style">CSS Animations</h2>
+					<p>Add motion without JavaScript!</p>
+					<ul>
+						<li>Hardware acceleration</li>
+						<li>Keyframes are cool</li>
+						<li>Use SVG!</li>
+						<li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">Not all CSS can be animated</a></li>
+					</ul>
+					<p class="fragment" style="margin-top: 1em;"><a href="https://twitter.com/sarah_edo">Sarah Drasner</a> is a pro at this</p>
+				</section>
+				<section>
+					<h3>CSS Animation example</h3>
+					<div class="halfCol">
+						<pre><code class="css">
+75% {
+	font-size: 300%;
+	margin-left: 25%;
+	width: 150%;
+}
+p {
+	animation-duration: 3s;
+	animation-name: slidein;
+}
+@keyframes slidein {
+	from {
+		margin-left: 100%;
+		width: 300%; 
+	}
+	75% {
+		font-size: 300%;
+		margin-left: 25%;
+		width: 150%;
+	}
+	to {
+		margin-left: 0%;
+		width: 100%;
+	}
+}
+						</code></pre>
+					</div>
+					<div class="halfCol">
+						<div class="css-animation-example">
+							<button onclick="startAnimation()">Animate</button>
+							<div class="target">
+								<p>Doggo ipsum the neighborhood pupper clouds most angery pupper I have ever seen he made many woofs, borkdrive.</p>
+							</div>
+						</div>
+					</div>
+					<script>
+						function startAnimation() {
+							var target = document.querySelector('.target');
+							target.classList.add('animating');
+
+							window.setTimeout(function(){
+								target.classList.remove('animating');
+							}, 3000);
+						}
+					</script>
+				</section>
+				<section>
+					<h3>Automated Testing Tips</h3>
+					<ul>
+						<li>Asserting keyboard focus in animated regions is hard</li>
+						<li class="fragment">You could try the <code>transitionend</code> <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionend_event">event</a></li>
+						<li class="fragment">Or a big negative CSS <code>transition-delay</code></li>
+						<li class="fragment">Or the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API">Web Animations API</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2 class="h1-style">prefers-reduced-motion</h2>
+					<p>Detect if the user has requested the system minimize animation or motion</p>
+					<pre><code class="css">
+	.animation {
+		-webkit-animation: vibrate 0.3s linear infinite both;
+		animation: vibrate 0.3s linear infinite both; 
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.animation {
+			animation: none;
+			-webkit-animation: none;
+		}
+	}
+					</code></pre>
+				</section>
+				<section>
+					<h3>Reduced Motion Demo</h3>
+					<p>(flashing content warning)</p>
+					<iframe src="demo/reduced-motion/index.html" title="Reduced motion demo" style="min-height:600px; min-width:610px; margin: 0 auto;"></iframe>
+				</section>
+				<section>
+					<img src="images/reduce-motion-osx.png" alt="OSX System Preferences: Accessibility, reduce motion" class="plain" style="display:inline-block; width: 60%; vertical-align: top;" />
+					<img src="images/ios-preferences-motion.png" alt="iOS System Preferences for Reduce Motion" class="plain" style="display: inline-block; width: 25%; vertical-align: top;" />
+				</section>
+				<section data-background-image="images/caniuse-reduced-motion.jpg" data-background-position="top">
+					<h3 class="visually-hidden">Caniuse.com for prefers-reduced-motion</h3>
+				</section>
+				<section data-state="inverted" data-background-image="images/css-is-awesome.png" data-background-size="contain">
+					<h2 class="visually-hidden">CSS is Awesome (overflowing its container because it's funny)</h2>
+				</section>
+				<section>
+					<h2>Thanks, CSUN!</h2>
+					<p>Slides: <a href="https://github.com/marcysutton/emerging-css-a11y">https://github.com/marcysutton/emerging-css-a11y</a></p>
+					<p>Twitter: <a href="https://twitter.com/marcysutton">https://twitter.com/marcysutton</a></p>
+					<p>Email: <a href="mailto:marcy@gatsbyjs.com">marcy@gatsbyjs.com</a></p>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				width: 1440,
+				height: 900,
+
+				// Factor of the display size that should remain empty around the content
+				margin: 0,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.0,
+
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; }
+					}
+				]
+			});
+		</script>
+		<script src="/node_modules/focus-visible/dist/focus-visible.min.js"></script>
+	</body>
+</html>

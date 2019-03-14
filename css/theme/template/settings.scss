@@ -1,0 +1,48 @@
+// Base settings for all themes that can optionally be
+// overridden by the super-theme
+
+$codeBgColor: #181818;
+$bgColor: rgb(102, 51, 153);
+$fgColor: #fff;
+$darkAccentColor: #000;
+$accentColor: rgb(250, 217, 97);
+
+// Primary/body text
+$mainFont: 'Futura', sans-serif;
+$mainFontSize: 40px;
+$mainColor: $fgColor;
+$backgroundColor: $bgColor;
+
+// Vertical spacing between blocks of text
+$blockMargin: 20px;
+
+// Headings
+$headingMargin: 0 0 $blockMargin 0;
+$headingFont: 'Spectral', 'Times New Roman', serif;
+$headingColor: $fgColor;
+$headingLineHeight: 1.2;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingTextShadow: none;
+$headingFontWeight: 800;
+$heading1TextShadow: $headingTextShadow;
+
+$heading1Size: 2.7em;
+$heading2Size: 2em;
+$heading3Size: 1.75em;
+$heading4Size: 1.00em;
+
+// Links and actions
+$linkColor: $accentColor;
+$linkColorHover: lighten( $linkColor, 20% );
+$linkDecoration: underline;
+
+// Text selection
+$selectionBackgroundColor: $accentColor;
+$selectionColor: $darkAccentColor;
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin bodyBackground() {
+	background: $backgroundColor;
+}

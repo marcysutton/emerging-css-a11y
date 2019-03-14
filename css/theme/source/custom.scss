@@ -1,0 +1,368 @@
+@import "../template/mixins";
+@import "../template/settings";
+
+section.has-dark-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+
+$tablet: 'screen and (max-width: 1024px)';
+$mobile: 'screen and (max-width: 600px)';
+
+.title-slide h2 {
+  color: darken( $fgColor, 20% );
+  font-family: $mainFont;
+  font-size: $heading3Size;
+  font-weight: normal;
+}
+.inverted body {
+  background-color: $accentColor;
+  color: $backgroundColor;
+
+  .reveal * {
+    color: $backgroundColor;
+  }
+}
+.dark body {
+  background-color: darken( $bgColor, 20% );
+}
+.reveal {
+  .h1-style {
+    @extend h1;
+  }
+  .h2-style {
+    @extend h2;
+  }
+  .h3-style {
+    @extend h3;
+  }
+  .h4-style {
+    @extend h4;
+  }
+  .warning {
+    background-color: red;
+    color: black;
+    position: absolute;
+    top: 650px;
+    width: 100%;
+  }
+  a {
+    text-decoration: $linkDecoration;
+  }
+  .subhead {
+    @extend h4;
+    font-style: italic;
+    font-weight: bold;
+  }
+  .all-caps {
+    text-transform: uppercase;
+  }
+  .visually-hidden {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+  .progress {
+    background-color: $darkAccentColor;
+    height: 15px;
+
+    span {
+      background: $fgColor;
+      box-shadow: 2px 1px 3px #666;
+    }
+  }
+  .controls {
+    bottom: 110px;
+
+    button:focus {
+      outline: 3px solid $darkAccentColor;
+    }
+  }
+
+  pre code {
+    font-family: Menlo, Courier, monospace;
+    max-height: 520px;
+  }
+  figure.code {
+    box-sizing: border-box;
+    position: relative;
+    width: 90%;
+
+    *, *:before, *:after {
+      box-sizing: border-box;
+    }
+
+    pre {
+      box-shadow: none;
+      margin-bottom: 0;
+      width: 100%;
+
+      &+ figcaption {
+        background-color: rgba(255, 255, 255, 0.85);
+        color: #000;
+        font-size: 0.8em;
+        font-style: normal;
+        font-weight: bold;
+        margin-bottom: 25px;
+        padding: 10px 0 10px 20px;
+        text-align: left;
+        width: 100%;
+      }
+    }
+  }
+  .regular-case {
+    text-transform: none;
+  }
+  .subhead {
+    font-style: italic;
+    @extend .regular-case;
+  }
+  .minimize {
+    font-size: 60%;
+  }
+  .plain {
+    background-color: transparent;
+  }
+  .emoji {
+    font-size: 300%;
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 0.5em;
+  }
+  .smaller {
+    font-size: 65%;
+    margin: 0;
+  }
+}
+/*********************************************
+ * LAYOUTS
+ *********************************************/
+.reveal li .twoThirdsCol {
+  padding-top: 2%;
+
+  small {
+    clear: both;
+    display: block;
+    text-align: center;
+  }
+}
+.reveal .wideCol {
+  vertical-align: top;
+  width: 54%;
+
+  &.twoThirdsCol {
+    float: left;
+  }
+}
+.reveal .skinnyCol {
+  vertical-align: top;
+  width: 44%;
+
+  &.twoThirdsCol {
+    float: left;
+    margin-right: 2%;
+  }
+}
+.reveal .twoThirdsCol pre {
+  font-size: .59em;
+  margin-top: 0;
+  width: 100%;
+}
+.reveal .halfCol {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+}
+.reveal .wordcloud {
+  > * {
+    list-style: none;
+    position: absolute;
+  }
+  .size1 {
+    font-size: 4em;
+  }
+  .size2 {
+    font-size: 3em;
+  }
+  .size3 {
+    font-size: 2.5em;
+  }
+  .size4 {
+    font-size: 2em;
+  }
+  .grid {
+    left: -20px;
+    top: -100px;
+  }
+  .flexbox {
+    left: 40px;
+    top: 100px;
+  }
+  .focus-visible {
+    left: 460px;
+    top: 150px;
+  }
+  .focus-within {
+    top: 340px;
+    right: 40px;
+  }
+  .css-animations {
+    right: 0px;
+    top: 0px;
+  }
+  .reduced-motion {
+    top: 440px;
+    left: 70px;
+  }
+  .asterisk {
+    top: 200px;
+    left: 1300px;
+  }
+}
+.reveal .layeredFragments {
+  margin: 0 auto;
+  min-height: 1000px;
+  position: relative;
+  width: 100%;
+
+  &>img, 
+  &>figure {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0;
+    width: 100%;
+  }
+  &.wordcloud {
+    position: absolute;
+    top: 0;
+
+    .fragment {
+      position: absolute;
+    }
+  }
+}
+.reveal {
+  .responsive-video {
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+
+    iframe, object, embed, video {
+      position:absolute;
+      top: 0;
+      left: 0;
+      max-height: 720px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  p code,
+  li code {
+    background-color: rgba(0,0,0,0.25);
+    display: inline-block;
+    padding: 0.005em 0.15em;
+  }
+  button, [role=button] {
+    background-color: black;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    display: inline-block;
+    font-size: 1em;
+    font-family: sans-serif;
+    line-height: 1;
+    padding: 0.25em;
+  }
+}
+/*********************************************
+ * Custom Slides
+ *********************************************/
+ .focus-visible-example {
+   input[type=checkbox] {
+      transform-origin: bottom;
+      transform: scale(2.5, 2.5);
+   }
+  &:not(.focus-visible-enabled) {
+    :focus {
+      outline: 4px solid greenyellow;
+    }
+  }
+  &.focus-visible-enabled :focus:not(.focus-visible) {
+    outline: 0;
+  }
+}
+:focus-visible,
+data-focus-visible-added {
+  outline: 3px solid greenyellow;
+}
+.focus-within-example {
+  display: inline-block;
+
+  &:focus-within {
+    background-color: #625e5e;
+
+    a {
+      color: white;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 1em;
+  }
+  li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 0.5em;
+
+    a {
+      text-decoration: none;
+    }
+    a:focus {
+      background-color: greenyellow;
+      color: black;
+    }
+  }
+}
+.css-animation-example {
+  text-align: left;
+  button {
+    font-size: 0.75em;
+    margin-top: 1em;
+  }
+  75% {
+    font-size: 300%;
+    margin-left: 25%;
+    width: 150%;
+  }
+  .animating p {
+    animation-duration: 3s;
+    animation-name: slidein;
+  }
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%; 
+    }
+    75% {
+      font-size: 300%;
+      margin-left: 25%;
+      width: 150%;
+    }
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "emerging-css-a11y",
+  "version": "1.0.0",
+  "description": "Emerging CSS Techniques and What They Mean for Accessibility",
+  "homepage": "https://marcysutton.com",
+  "main": "js/reveal.js",
+  "scripts": {
+    "test": "grunt test",
+    "start": "grunt serve",
+    "build": "grunt"
+  },
+  "author": {
+    "name": "Marcy Sutton",
+    "web": "https://marcysutton.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/marcysutton/emerging-css-a11y.git"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "devDependencies": {
+    "express": "^4.16.2",
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-qunit": "^2.0.0",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^2.0.0",
+    "grunt-retire": "^1.0.7",
+    "grunt-zip": "~0.17.1",
+    "mustache": "^2.3.0",
+    "socket.io": "^1.7.3"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "focus-visible": "^4.1.5"
+  }
+}
