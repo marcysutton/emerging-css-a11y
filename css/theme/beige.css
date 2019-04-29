@@ -84,6 +84,7 @@ body {
 .reveal img,
 .reveal video,
 .reveal iframe {
+  border: none;
   max-width: 95%;
   max-height: 95%; }
 
@@ -255,7 +256,10 @@ body {
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #8b743d; }
+  color: #fad961; }
+
+.light-background .reveal .controls {
+  color: rebeccapurple; }
 
 /*********************************************
  * PROGRESS BAR

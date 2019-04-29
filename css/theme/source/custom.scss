@@ -28,6 +28,32 @@ $mobile: 'screen and (max-width: 600px)';
     color: $backgroundColor;
   }
 }
+.light-background {
+  color: $darkAccentColor;
+
+  .reveal {
+    h1, h2, h3, h4, h5, h6,
+    p, ul, ol {
+      color: $darkAccentColor;
+      text-shadow: none; //1px 1px 10px #fff;
+    }
+    footer {
+      a {
+        color: $invertedFooterColor;
+      }
+      span {
+        color: $invertedFooterBulletColor;
+      }
+    }
+  }
+}
+.inverted {
+  .reveal {
+    footer, footer span {
+      color: $darkAccentColor;
+    }
+  }
+}
 .dark body {
   background-color: darken( $bgColor, 20% );
 }
@@ -44,6 +70,9 @@ $mobile: 'screen and (max-width: 600px)';
   .h4-style {
     @extend h4;
   }
+  .larger {
+    font-size: 1.25em;
+  }
   .warning {
     background-color: red;
     color: black;
@@ -59,6 +88,12 @@ $mobile: 'screen and (max-width: 600px)';
     @extend h4;
     font-style: italic;
     font-weight: bold;
+  }
+  .h2-style.subhead {
+    @extend h2;
+  }
+  .h3-style.subhead {
+    @extend h3;
   }
   .all-caps {
     text-transform: uppercase;
@@ -85,36 +120,112 @@ $mobile: 'screen and (max-width: 600px)';
       outline: 3px solid $darkAccentColor;
     }
   }
+  footer {
+    bottom: 0px;
+    left: 0;
+    font-family: $footerFont;
+    font-size: $footerFontSize;
+    font-weight: $footerFontWeight;
+    height: auto;
+    position: fixed;
+    padding-bottom: 30px;
+    text-align: left;
+    width: 100%;
+    opacity: 1;
+    transition: opacity 0.5s;
+    z-index: 1;
+
+    * {
+      text-shadow: none;
+    }
+    .title-slide &,
+    .hide-footer & {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .copyright {
+      display: inline-block;
+      padding: 5px 15px;
+      vertical-align: middle;
+    }
+    a {
+      color: $footerColor;
+    }
+    .footer-link {
+      display: block;
+      float: right;
+      padding: 5px 15px;
+      position: relative;
+      z-index: 1;
+    }
+    [aria-hidden=true] {
+      color: $footerBulletColor;
+      margin: 0 4px;
+    }
+
+    @media #{$mobile} {
+      display: none;
+    }
+  }
 
   pre code {
     font-family: Menlo, Courier, monospace;
     max-height: 520px;
+    padding: 1.5em 1em 1em;
+    position: relative;
+  }
+  pre code:before {
+    background-color: $accentColor;
+    border-radius: 0 0 25% 25%;
+    color: $darkAccentColor;
+    display: block;
+    right: 0;
+    padding: 0.5em;
+    position: absolute;
+    top: 0;
+  }
+  pre code.javascript:before,
+  pre code.js:before {
+    content: 'JS';
+  }
+  pre code.jsx:before,
+  pre code.jsx.javascript:before {
+    content: 'JSX';
+  }
+  pre code.css:before {
+    content: 'CSS';
+  }
+  figure figcaption {
+    font-size: 0.7em;
+    margin: 0.5em 0 0;
   }
   figure.code {
     box-sizing: border-box;
+    margin: 0 auto 0.5em auto;
     position: relative;
-    width: 90%;
+    width: 95%;
 
     *, *:before, *:after {
       box-sizing: border-box;
     }
-
+    figcaption {
+      background-color: $codeBgColor;
+      border-bottom: 1px solid #ccc;
+      color: #b7b6b4;
+      font-size: 0.5em;
+      font-style: normal;
+      font-weight: normal;
+      padding: 0.5em;
+      text-align: left;
+      width: 100%;
+    }
     pre {
+      background-color: $codeBgColor;
       box-shadow: none;
       margin-bottom: 0;
+      margin-top: 0;
       width: 100%;
-
-      &+ figcaption {
-        background-color: rgba(255, 255, 255, 0.85);
-        color: #000;
-        font-size: 0.8em;
-        font-style: normal;
-        font-weight: bold;
-        margin-bottom: 25px;
-        padding: 10px 0 10px 20px;
-        text-align: left;
-        width: 100%;
-      }
     }
   }
   .regular-case {
@@ -156,15 +267,18 @@ $mobile: 'screen and (max-width: 600px)';
 }
 .reveal .wideCol {
   vertical-align: top;
-  width: 54%;
+  width: 60%;
 
   &.twoThirdsCol {
     float: left;
   }
+  figure.code {
+    width: 100%;
+  }
 }
 .reveal .skinnyCol {
   vertical-align: top;
-  width: 44%;
+  width: 38%;
 
   &.twoThirdsCol {
     float: left;
@@ -175,11 +289,56 @@ $mobile: 'screen and (max-width: 600px)';
   font-size: .59em;
   margin-top: 0;
   width: 100%;
+
+  code {
+    overflow: hidden;
+  }
+}
+.reveal .inset {
+  margin: 0 auto;
+  width: 85%;
+}
+.reveal .insetTop {
+  margin-top: 1em;
 }
 .reveal .halfCol {
   display: inline-block;
   vertical-align: top;
-  width: 48%;
+  width: 46%;
+  
+  .code pre code {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    width: 100%;
+  }
+}
+.reveal figure.halfCol {
+  margin-top: 0;
+
+  img {
+    margin-top: 0;
+  }
+}
+.reveal .or {
+  position: relative;
+
+  &.top {
+    margin-top: 2em;
+
+    &:before {
+      color: #c0c0c0;
+      content: 'OR';
+      font-size: 0.6em;
+      position: absolute;
+      left: 50%;
+      top: -2.5em;
+      z-index: 1;
+      height: 1.5em;
+    }
+  }
+}
+.reveal .halfCol pre code {
+  overflow: hidden;
 }
 .reveal .wordcloud {
   > * {
@@ -211,8 +370,8 @@ $mobile: 'screen and (max-width: 600px)';
     top: 150px;
   }
   .focus-within {
-    top: 340px;
-    right: 40px;
+    left: 60px;
+    top: 300px;
   }
   .css-animations {
     right: 0px;
@@ -225,6 +384,10 @@ $mobile: 'screen and (max-width: 600px)';
   .asterisk {
     top: 200px;
     left: 1300px;
+  }
+  .css-in-js {
+    top: 320px;
+    right: 40px;
   }
 }
 .reveal .layeredFragments {
@@ -336,6 +499,104 @@ data-focus-visible-added {
     }
   }
 }
+.tabSwitcher,
+.tabSwitcher-ARIA {
+  display: block;
+  font-size: 0.7em;
+  height: 520px;
+  margin: 2em auto 0;
+  position: relative;
+  text-align: left;
+  width: 80%;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  button[role="tab"] {
+    background-color: #f9f9f9;
+    border-radius: none;
+    margin: 0;
+  }
+  .tab {
+    float: left;
+  }
+  .tab label {
+    border: 1px solid #ddd;
+    color: $darkAccentColor;
+    cursor: pointer;
+    padding: .5em 1em;
+  }
+  button[role="tab"] {
+    border-radius: 0;
+    font-size: 1em;
+    font-family: $mainFont;
+    float: left;
+  }
+  .tab label, button[role="tab"] {
+    background-color: #c0c0c0;
+    border: 1px solid #ddd;
+    color: $darkAccentColor;
+    cursor: pointer;
+    line-height: 1;
+    padding: .5em 1em;
+  }
+
+  // Visually hide radio buttons
+  .tab [type=radio] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    
+    &:focus + label {
+      outline: 4px dotted hotpink;
+    }
+    &:checked ~ label {
+      background-color: #fff;
+      border-bottom-color: transparent;
+      border-right-color: #ddd;
+      border-left-color: #ddd;
+      border-top-color: $accentColor;
+      border-top-width: 5px;
+      z-index: 1;
+    }
+    &:checked ~ label ~ .tab-content {
+      z-index: 2;
+      opacity: 1;
+    }
+  }
+  .tabSwitcher-ARIA-tabs [aria-selected="true"] {
+    background-color: #fff;
+    border-bottom-color: transparent;
+    border-right-color: #ddd;
+    border-left-color: #ddd;
+    border-top-color: $accentColor;
+    border-top-width: 5px;
+    z-index: 1;
+  }
+  .tab-content:not[role="tabpanel"] {
+    opacity: 0;
+  }
+  .tab-content,
+  [role="tabpanel"] {
+    background-color: $fgColor;
+    color: $darkAccentColor;
+    position: absolute;
+    top: 2em; left: 0; right: 0; bottom: 0;
+    padding: 1em;
+    width: 100%;
+
+    &:after {
+      content: '';
+      clear: both;
+      display: block;
+    }
+  }
+  p, ul, ol, table {
+    font-size: 0.8em;
+    text-align: left;
+  }
+}
+
 .css-animation-example {
   text-align: left;
   button {

@@ -1,7 +1,7 @@
 // Base settings for all themes that can optionally be
 // overridden by the super-theme
 
-$codeBgColor: #181818;
+$codeBgColor: #2d2c2c;
 $bgColor: rgb(102, 51, 153);
 $fgColor: #fff;
 $darkAccentColor: #000;
@@ -36,6 +36,19 @@ $heading4Size: 1.00em;
 $linkColor: $accentColor;
 $linkColorHover: lighten( $linkColor, 20% );
 $linkDecoration: underline;
+
+// Control arrows
+$arrowColor: $accentColor;
+$invertedArrowColor: $bgColor;
+
+// footer styles
+$footerColor: $accentColor;
+$footerBulletColor: darken($footerColor, .9);
+$footerFont: $mainFont;
+$footerFontSize: 45%;
+$footerFontWeight: normal;
+$invertedFooterColor: $bgColor;
+$invertedFooterBulletColor: #ae8900;
 
 // Text selection
 $selectionBackgroundColor: $accentColor;

@@ -23,26 +23,28 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section data-background-image="images/space-jam.jpg" data-transition="none">
+				<section data-background-image="images/space-jam.jpg" data-transition="none" data-state="hide-footer">
 					<h1 class="visually-hidden">Space Jam, a 1996 website</h1>
-					<h2 class="warning h4-style">Warning: there are some large GIF files in this presentation.</h2>
 				</section>
-				<section data-background-image="images/space-jam-focused.jpg" data-transition="none">
+				<section data-background-image="images/space-jam-focused.jpg" data-transition="none" data-state="hide-footer">
 					<h1 class="visually-hidden">Space Jam: it had focus states!</h1>
 				</section>
-				<section data-background-image="https://marcy.codes/slides/emerging-css-a11y/images/space-jam-inspect.gif" data-transition="none">
+				<section data-background-image="images/space-jam-inspect.gif" data-transition="none" data-state="hide-footer">
 					<h1 class="visually-hidden">Inspecting Space Jam in Chrome DevTools</h1>
 				</section>
-				<section data-background-image="images/captain-marvel.jpg" data-transition="none">
+				<section data-background-image="images/captain-marvel.jpg" data-transition="none" data-state="hide-footer">
 					<h1 class="visually-hidden">Captain Marvel: it's new but made to look old!</h1>
 				</section>
-				<!--<section data-background-image="https://marcy.codes/slides/emerging-css-a11y/images/captain-marvel-inspect.gif" data-transition="none">
+				<section data-background-image="images/captain-marvel-inspect.gif" data-transition="none" data-state="hide-footer">
 					<h1 class="visually-hidden">Inspecting Captain Marvel in Chrome DevTools</h1>
-				</section>-->
+				</section>
 				<section data-state="title-slide">
 					<h1>Emerging CSS Techniques &amp;&nbsp;What They Mean for&nbsp;Accessibility</h1>
 					<h2>By Marcy Sutton<br />
@@ -58,10 +60,10 @@
 						<li>But it turned out I really love the web</li>
 					</ul>
 				</section>
-				<section data-background-image="images/marcysutton-v1.jpg" data-transition="none" data-background-position="center center">
+				<section data-background-image="images/marcysutton-v1.jpg" data-transition="none" data-background-position="center center" data-state="light-background">
 					<h1 class="visually-hidden">MarcySutton.com in 2008</h1>
 				</section>
-				<section data-background-image="https://marcy.codes/slides/emerging-css-a11y/images/marcysutton-v1-inspect.gif" data-transition="none" data-background-position="center center">
+				<section data-background-image="images/marcysutton-v1-inspect.gif" data-transition="none" data-background-position="center center" data-state="hide-footer light-background">
 					<h1 class="visually-hidden">MarcySutton.com in 2008: It used tables and spacer images</h1>
 				</section>
 				<section data-background-image="images/marcysutton-2011.jpg" data-transition="none">
@@ -73,16 +75,16 @@
 				<section data-background-image="images/marcysutton-2011-about.jpg" data-transition="none">
 					<h1 class="visually-hidden">MarcySutton.com About page in 2011</h1>
 				</section>
-				<section data-background-image="https://marcy.codes/slides/emerging-css-a11y/images/marcysutton-2011-cufon.gif" data-transition="none">
+				<section data-background-image="images/marcysutton-2011-cufon.gif" data-transition="none" data-state="hide-footer">
 					<h1 class="visually-hidden">MarcySutton.com in 2011: It used the Cufon font rendering technique</h1>
 				</section>
-				<section data-background-image="images/cufon.png" data-transition="none">
+				<section data-background-image="images/cufon.png" data-transition="none" data-state="hide-footer light-background">
 					<h1 class="visually-hidden">Cufon: fonts for the people (discontinued)</h1>
 				</section>
-				<section data-background-image="images/sifr1-intro.jpg" data-transition="none" data-background-position="top center">
+				<section data-background-image="images/sifr1-intro.jpg" data-transition="none" data-background-position="top center" data-state="hide-footer light-background">
 					<h1 class="visually-hidden">sIFR 2.0: Rich Accessible Typography for the Masses</h1>
 				</section>
-				<section data-background-image="images/sifr3-accessibility.png" data-transition="none" data-background-position="top center">
+				<section data-background-image="images/sifr3-accessibility.png" data-transition="none" data-background-position="top center" data-state="hide-footer light-background">
 					<div class="visually-hidden">
 						<h1 class="visually-hidden">sIFR: Accessibility</h1>
 						<p>sIFR is fully accessible to screenreaders and other assistive technology. Don’t take our word for it. Ask Matt May of the W3C who endorses it as an accessible method to create rich typography on the web. Or ask Joe Clark, one of the world’s leading accessibility experts, whose interest in typography is only trumped by his interest in accessibility.</p>
@@ -130,6 +132,7 @@
 						<li class="size4 focus-within">:focus-within</li>
 						<li class="size3 css-animations">CSS Animations</li>
 						<li class="size2 reduced-motion">prefers-reduced-motion</li>
+						<li class="size3 css-in-js">CSS-in-JS</li>
 						<li class="size2 asterisk">*</li>
 					</ul>
 					<aside class="notes">
@@ -143,7 +146,7 @@
 					Specification for two-dimensional web layout with CSS
 					</aside>
 				</section>
-				<section>
+				<section data-state="hide-footer">
 					<div class="halfCol">
 						<img src="images/Radio_News_Nov_1928_pg424.jpg"
 							alt="Newspaper layout for Radio News, November 1928"
@@ -179,7 +182,7 @@
 						<p>A grid is an intersecting set of horizontal and vertical lines – one set defining columns, and the other, rows. Elements can be placed onto the grid, within these column and row lines.</p>
 					</aside>
 				</section>
-				<section>
+				<section data-state="hide-footer">
 					<h3 class="visually-hidden">A real life site example: MarcySutton.com</h3>
 					<div class="halfCol">
 						<img src="images/marcysutton.com.jpg"
@@ -195,15 +198,15 @@
 						/>
 					</div>
 				</section>
-				<section data-background-image="images/grid-inspector.jpg" data-transition="none">
+				<section data-background-image="images/grid-inspector.jpg" data-transition="none" data-state="hide-footer">
 					<h3 class="visually-hidden">MarcySutton.com in Firefox Grid inspector</h3>
 					<p class="visually-hidden">The "nav-wrap" element in the header uses display: grid, grid-template-columns: 225px 1fr, and width: auto. It contains the MarcySutton.com logo and navigation items.</p>
 				</section>
-				<section data-background-image="images/grid-firefox-list.jpg" data-transition="none">
+				<section data-background-image="images/grid-firefox-list.jpg" data-transition="none" data-state="hide-footer">
 					<h3 class="visually-hidden">List of talks on MarcySutton.com in Firefox Grid inspector</h3>
 					<p class="visually-hidden">an unordered list has display: grid, grid-template-columns: repeat(3, 1fr), and grid-gap: 1em. It falls back to CSS column layout for IE11.</p>
 				</section>
-				<section data-background-image="images/grid-firefox-a11y.jpg" data-transition="none">
+				<section data-background-image="images/grid-firefox-a11y.jpg" data-transition="none" data-state="hide-footer">
 					<h3 class="visually-hidden">Grid list of talks still has the list role</h3>
 				</section>
 				<section>
@@ -225,9 +228,16 @@
 						<cite>- <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility">MDN web docs</a></cite>
 					</blockquote>
 					<img src="images/grid-order.jpg" alt="Rearranged DIVs" style="width: 50%;" />
-					<p class="smaller">* this also applies to Flexbox</p>
 				</section>
-				<section data-background-image="images/caniuse-css-grid.jpg" data-background-position="top">
+				<section>
+					<h3 class="h1-style">
+						<span class="subhead">Be careful with</span><br />
+						ORDER<br />
+						<span class="subhead">and interactive controls</span>
+					</h3>
+					<p><span title="Woman raising hand" class="emoji">💁‍♀️</span></p>
+				</section>
+				<section data-background-image="images/caniuse-css-grid.jpg" data-background-position="top" data-state="hide-footer">
 					<h3 class="visually-hidden">Caniuse.com for CSS Grid</h3>
 				</section>
 				<section>
@@ -237,7 +247,7 @@
 						<cite><a href="https://www.w3.org/TR/css-flexbox-1/">https://www.w3.org/TR/css-flexbox-1/</a></cite>
 					</blockquote>
 				</section>
-				<section data-background-image="images/css-tricks-flexbox.jpg" data-background-position="top">
+				<section data-background-image="images/css-tricks-flexbox.jpg" data-background-position="top" data-state="hide-footer">
 					<h3 class="visually-hidden">CSS Flexbox Guide on CSS Tricks</h3>
 					<p style="margin-top: -480px;">
 						<a style="background-color:black; display: inline-block; padding: 0.2em;" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a>
@@ -249,10 +259,56 @@
 						<cite>-Rachel Andrew</cite>
 					</blockquote>
 				</section>
-				<section data-background-image="images/marcysutton.com-flexbox.jpg" data-background-position="top">
+				<section data-background-image="images/marcysutton.com-flexbox.jpg" data-background-position="top" data-state="hide-footer">
 					<h3 class="visually-hidden">Flexbox on MarcySutton.com - nav links</h3>
 				</section>
-				<section data-background-image="images/caniuse-flexbox.jpg" data-background-position="top">
+				<section>
+					<h3><span aria-hidden="true">🚨</span> Ordering Flex Items <span aria-label="alert">🚨</span></h3>
+					<blockquote>
+						“Authors must not use order or the -reverse values of flex-flow/flex-direction as a substitute for correct source ordering, as that can ruin the accessibility of the document.”
+						<cite>- <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Ordering_Flex_Items#The_order_property_and_accessibility">MDN web docs</a></cite>
+					</blockquote>
+				</section>
+				<section data-state="hide-footer">
+					<h3 class="visually-hidden">flex-direction, -reverse</h3>
+					<div class="halfCol">
+						<pre><code class="css">
+  ul {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+						</code></pre>
+					</div>
+					<div class="halfCol">
+						<pre><code class="css">
+  ul {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+						</code></pre>
+					</div>
+					<figure>
+						<img src="images/flex-direction-reverse.png" alt="Image 1: Flex items are displayed in reverse order starting on the right-hand line. Image 2: The items are displayed in a column in reverse order starting at the bottom line." style="width: 50%" />
+						<figcaption><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Ordering_Flex_Items">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Ordering_Flex_Items</a></figcaption>
+					</figure>
+				</section>
+				<section data-background-image="images/marcysuttoncom-rowreverse.jpg" data-background-size="cover" data-transition="none" data-background-position="top center" data-background-color="#fff" data-state="hide-footer">
+					<h3 class="visually-hidden">MarcySutton.com with nav links reversed</h3>
+				</section>
+				<section data-background-image="images/accessibility-insights-chrome.png" data-background-size="cover" data-transition="none" data-background-position="top center" data-background-color="#fff" data-state="hide-footer">
+					<h3 class="visually-hidden">Accessibility Insights for Chrome</h3>
+				</section>
+				<section data-background-image="images/marcysuttoncom-tabstops0.jpg" data-background-size="cover" data-transition="none" data-background-position="top center" data-background-color="#606060" data-state="hide-footer">
+					<h3 class="visually-hidden">image 1: Marcysutton.com with Accessibility Insights tab stop tester on skip link</h3>
+				</section>
+				<section data-background-image="images/marcysuttoncom-tabstops1.jpg" data-background-size="cover" data-transition="none" data-background-position="top center" data-background-color="#606060" data-state="hide-footer">
+					<h3 class="visually-hidden">image 2: Marcysutton.com with Accessibility Insights tab stop tester on first homepage nav link, on right side</h3>
+				</section>
+				<section data-background-image="images/marcysuttoncom-tabstops2.jpg" data-background-size="cover" data-transition="none" data-background-position="top center" data-background-color="#606060" data-state="hide-footer">
+					<h3 class="visually-hidden">image 3: Marcysutton.com with Accessibility Insights tab stop tester on lower page content</h3>
+				</section>
+
+				<section data-background-image="images/caniuse-flexbox.jpg" data-background-position="top" data-state="hide-footer">
 					<h3 class="visually-hidden">Caniuse.com for CSS Flexbox</h3>
 				</section>
 				<section>
@@ -284,10 +340,10 @@
 						}
 					</script>
 				</section>
-				<section data-background-image="images/angular-material-button-focus.jpg" data-background-position="top">
+				<section data-background-image="images/angular-material-button-focus.jpg" data-background-position="top" data-state="hide-footer">
 					<h3 class="visually-hidden">Angular Material issue number 556 on Github: "md-button stays focused after a click"</h3>
 				</section>
-				<section data-background-image="images/button-focus-hell.jpg" data-background-position="top">
+				<section data-background-image="images/button-focus-hell.jpg" data-background-position="top" data-state="hide-footer">
 					<h3 class="visually-hidden">Button Focus Hell</h3>
 				</section>
 				<section>
@@ -303,7 +359,7 @@
 					</blockquote>
 					<h4 class="fragment h3-style">More specific tools at our disposal prevent <code>outline: none</code></h4>
 				</section>
-				<section data-background-image="images/caniuse-focus-visible.jpg" data-background-position="top">
+				<section data-background-image="images/caniuse-focus-visible.jpg" data-background-position="top" data-state="hide-footer">
 					<h3 class="visually-hidden">Caniuse.com for CSS focus-visible</h3>
 				</section>
 				<section>
@@ -321,8 +377,12 @@
 						</ul>
 					</div>
 				</section>
-				<section data-background-image="images/caniuse-focus-within.jpg" data-background-position="top">
+				<section data-background-image="images/caniuse-focus-within.jpg" data-background-position="top" data-state="hide-footer">
 					<h3 class="visually-hidden">Caniuse.com for CSS focus-within</h3>
+				</section>
+				<section>
+					<h3>focus-within polyfill</h3>
+					<p><a href="https://allyjs.io/api/style/focus-within.html">Allyjs.io</a></p>
 				</section>
 				<section>
 					<h2 class="h1-style">CSS Animations</h2>
@@ -336,7 +396,7 @@
 					<p class="fragment" style="margin-top: 1em;"><a href="https://twitter.com/sarah_edo">Sarah Drasner</a> is a pro at this</p>
 				</section>
 				<section>
-					<h3>CSS Animation example</h3>
+					<h3>Animation example</h3>
 					<div class="halfCol">
 						<pre><code class="css">
 p {
@@ -380,6 +440,10 @@ p {
 					</script>
 				</section>
 				<section>
+					<h3>Animated Modal Focus example</h3>
+					<!-- TODO: embed codepen with a demo and test side-by-side -->
+				</section>
+				<section>
 					<h3>Automated Testing Tips</h3>
 					<ul>
 						<li>Asserting keyboard focus in animated regions is hard</li>
@@ -414,23 +478,382 @@ p {
 					<img src="images/reduce-motion-osx.png" alt="OSX System Preferences: Accessibility, reduce motion" class="plain" style="display:inline-block; width: 60%; vertical-align: top;" />
 					<img src="images/ios-preferences-motion.png" alt="iOS System Preferences for Reduce Motion" class="plain" style="display: inline-block; width: 25%; vertical-align: top;" />
 				</section>
-				<section data-background-image="images/caniuse-reduced-motion.jpg" data-background-position="top">
+				<section data-background-image="images/caniuse-reduced-motion.jpg" data-background-position="top" data-state="hide-footer">
 					<h3 class="visually-hidden">Caniuse.com for prefers-reduced-motion</h3>
 				</section>
-				<section data-state="inverted" data-background-image="images/css-is-awesome.png" data-background-size="contain">
+
+				<section>
+					<h2 class="h1-style"><span class="subhead">Do you even need</span><br /> JavaScript?</h2>
+					<h3 class="fragment">It depends™</h3>
+				</section>
+				
+				<section>
+					<h3 class="h2-style">Screen readers announce pages as&nbsp;rendered<br />
+						<span class="subhead">...including JavaScript</span></h3>
+					<img class="fragment" data-src="images/bob-ross.jpg" alt="Bob Ross painting a happy little tree" />
+				</section>
+
+				<section data-state="hide-footer">
+					<h3>You probably need JavaScript<br />
+					<span class="subhead">to make accessible custom widgets</span></h3>
+					<form name="tabSwitcher" class="tabSwitcher">
+						<div class="tab">
+							<input id="tab1" type="radio" name="tabs" checked />
+							<label for="tab1">Description</label>
+
+							<div class="tab-content">
+								<p>With wholesome fruits and veggies like carrots, dried kelp and blueberries, your dog is getting beneficial fiber, phytonutrients and antioxidants. Omega fatty acids are plentiful, including DHA, an omega-3 that supports healthy development of the brain and eyes. These omegas come from several sources like salmon oil and flaxseed, and they help keep your fellow adventurer’s skin and coat healthy. This recipe is grain-free and has no corn, wheat or soy, which makes it a great choice for dogs that are prone to food sensitivities.</p>
+							</div>
+						</div>
+						<div class="tab">
+							<input id="tab2" type="radio" name="tabs" />
+							<label for="tab2">Nutritional Info</label>
+						<div class="tab-content">
+							<p>Deboned Salmon, Chicken Meal, Turkey Meal, Peas, Sweet Potatoes, Chickpeas, Pea Protein, Chicken Fat (Preserved with Mixed Tocopherols), Dried Plain Beet Pulp, Natural Flavor, Flaxseed, Menhaden Fish Meal, Blueberries, Carrots, Salt, Salmon Oil, Dried Kelp, Fructooligosaccharides, Choline Chloride, Vitamin E Supplement, Mixed Tocopherols (Preservative), Ferrous Sulfate, Zinc Proteinate.</p>
+						</div>
+						</div>
+						<div class="tab">
+							<input id="tab3" type="radio" name="tabs" />
+							<label for="tab3">Feeding Instructions</label>
+							<div class="tab-content">
+								<table>
+									<thead>
+									<tr><th>Weight</th><th>Daily Feeding (Cup)</th><th>Calories (Day)</th></tr>
+									</thead>
+									<tbody>
+									<tr><td>3 lbs</td><td>1/3</td><td>130</td></tr>
+									<tr><td>6 lbs</td><td>2/3</td><td>260</td></tr>
+									<tr><td>10 lbs</td><td>1</td><td>390</td></tr>
+									<tr><td>15 lbs</td><td>1 1/3</td><td>520</td></tr>
+									<tr><td>20 lbs</td><td>1 2/3</td><td>650</td></tr>
+									<tr><td>30 lbs</td><td>2 1/4</td><td>878</td></tr>
+									<tr><td>40 lbs</td><td>2 3/4</td><td>1,073</td></tr>
+									<tr><td>50 lbs</td><td>3 1/4</td><td>1,268</td></tr>
+									<tr><td>60 lbs</td><td>3 2/3</td><td>1,430</td></tr>
+									<tr><td>70 lbs</td><td>4</td><td>1,560</td></tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</form>
+				</section>
+
+				<section data-state="hide-footer">
+					<h3>
+						Here's how to use JavaScript and ARIA<br />
+						<span class="subhead">to make accessible custom widgets</span>
+					</h3>
+					<div class="tabSwitcher-ARIA">
+						<div role="tablist" class="tabSwitcher-ARIA-tabs">
+							<button id="tab1-ARIA" role="tab" aria-selected="true" aria-controls="tab1-tabpanel">Description</button>
+							<button id="tab2-ARIA" role="tab" aria-selected="false" aria-controls="tab2-tabpanel" tabindex="-1">Nutritional Info</button>
+							<button id="tab3-ARIA" role="tab" aria-selected="false" aria-controls="tab3-tabpanel" tabindex="-1">Feeding Instructions</button>
+						</div>
+						<div class="tab-content" tabindex="0" role="tabpanel" id="tab1-tabpanel" aria-labelledby="tab1-ARIA">
+							<p>With wholesome fruits and veggies like carrots, dried kelp and blueberries, your dog is getting beneficial fiber, phytonutrients and antioxidants. Omega fatty acids are plentiful, including DHA, an omega-3 that supports healthy development of the brain and eyes. These omegas come from several sources like salmon oil and flaxseed, and they help keep your fellow adventurer’s skin and coat healthy. This recipe is grain-free and has no corn, wheat or soy, which makes it a great choice for dogs that are prone to food sensitivities.</p>
+						</div>
+						<div class="tab-content" tabindex="0" role="tabpanel" id="tab2-tabpanel" aria-labelledby="tab2-ARIA" hidden>
+							<p>Deboned Salmon, Chicken Meal, Turkey Meal, Peas, Sweet Potatoes, Chickpeas, Pea Protein, Chicken Fat (Preserved with Mixed Tocopherols), Dried Plain Beet Pulp, Natural Flavor, Flaxseed, Menhaden Fish Meal, Blueberries, Carrots, Salt, Salmon Oil, Dried Kelp, Fructooligosaccharides, Choline Chloride, Vitamin E Supplement, Mixed Tocopherols (Preservative), Ferrous Sulfate, Zinc Proteinate.</p>
+						</div>
+						<div class="tab-content" tabindex="0" role="tabpanel" id="tab3-tabpanel" aria-labelledby="tab3-ARIA" hidden>
+							<table>
+								<thead>
+								<tr><th>Weight</th><th>Daily Feeding (Cup)</th><th>Calories (Day)</th></tr>
+								</thead>
+								<tbody>
+								<tr><td>3 lbs</td><td>1/3</td><td>130</td></tr>
+								<tr><td>6 lbs</td><td>2/3</td><td>260</td></tr>
+								<tr><td>10 lbs</td><td>1</td><td>390</td></tr>
+								<tr><td>15 lbs</td><td>1 1/3</td><td>520</td></tr>
+								<tr><td>20 lbs</td><td>1 2/3</td><td>650</td></tr>
+								<tr><td>30 lbs</td><td>2 1/4</td><td>878</td></tr>
+								<tr><td>40 lbs</td><td>2 3/4</td><td>1,073</td></tr>
+								<tr><td>50 lbs</td><td>3 1/4</td><td>1,268</td></tr>
+								<tr><td>60 lbs</td><td>3 2/3</td><td>1,430</td></tr>
+								<tr><td>70 lbs</td><td>4</td><td>1,560</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<script>
+						var tabs = document.querySelectorAll('tabs');
+						
+						// function delay () {
+						// 	var toggles = document.toggleBox.toggles;
+						// 	var radios = document.toggleboxForm.toggleInputs;
+						// 	var prevSelection = null;
+						// 	for (var i = 0; i < radios.length; i++) {
+						// 		radios[i].addEventListener('change', function(event) {
+						// 			var that = this;
+						// 			if (that !== prevSelection) {
+						// 				prevSelection = that;
+						// 			}
+						// 			for (var k = 0; k < toggles.length; k++) {
+						// 				toggles[k].setAttribute('type', prevSelection.value);
+						// 			}
+						// 		});
+						// 	}
+						// }
+						// window.setTimeout(delay, 1000);
+					</script>
+				</section>
+
+				<section>
+					<h3>Widget Testing Tips</h3>
+					<ul>
+						<li>Use the keyboard</li>
+						<li>Test with a screen reader</li>
+						<li>Run an automated accessibility checker</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3 class="h2-style">
+						<span class="subhead">Relying completely on<br />client-rendered&nbsp;JavaScript</span><br /> will leave users behind.</h3>
+				</section>
+
+				<section data-background-image="images/delta-nojs.jpg" data-background-position="center top" data-state="hide-footer light-background">
+					<h3 class="visually-hidden">Delta.com with JavaScript disabled</h3>
+				</section>
+
+				<section data-background-image="images/gatsbyjs-org.jpg" data-background-size="contain" data-background-color="#606060" data-state="hide-footer">
+					<h3 class="visually-hidden">Gatsbyjs.org homepage</h3>
+				</section>
+
+				<section data-background-image="images/marcysuttoncom-statichtml.jpg" data-background-size="contain" data-background-color="#606060" data-state="hide-footer">
+					<h3 class="visually-hidden">MarcySutton.com with JavaScript turned off</h3>
+				</section>
+
+				<section>
+					<h3 class="h1-style">CSS-in-JS</h3>
+					<ul style="margin-bottom: 0;">
+						<li>Styled components</li>
+						<li>Emotion</li>
+						<li>Glamor</li>
+						<li>...and so many more</li>
+					</ul>
+					<div class="fragment">
+						<img class="plain" src="images/the-great-debate.png" style="margin: 0 0 0 1em; max-width:20%;" alt="The Great Debate" />
+						<img class="plain" src="images/dumpster-fire.gif" alt="Cute dumpster on fire" style="margin: 0; max-width:20%;" /></div>
+					<aside class="notes">https://giphy.com/100soft</aside>
+				</section>
+
+				<section data-background-image="images/brad-frost-css-in-js.jpg" data-background-position="center top" data-background-color="#606060" data-state="hide-footer">
+					<h3 class="visually-hidden">How ‘bout that CSS-in-JS? pic.twitter.com/mcR9scUhQq— Brad Frost (@brad_frost) May 8, 2018</h3>
+				</section>
+
+				<section>
+					<h3 class="h2-style">Why do developers choose CSS-in-JS?</h3>
+					<ul class="larger">
+						<li>Limiting scope in components</li>
+						<li>Dead code elimination</li>
+						<li>Fast performance</li>
+						<li>Dynamic styling</li>
+						<li>Developer ergonomics*</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3 class="h2-style">For users &amp; accessibility,<br />
+						<span class="subhead">it’s about what gets&nbsp;rendered</span>
+					</h3>
+					<ul class="larger">
+						<li>Inline or remote CSS <span role="img" title="shruging woman">🤷‍♀️</span></li>
+						<li>Valid HTML markup</li>
+						<li>Fast performance</li>
+						<li>Human-readable class names</li>
+					</ul>
+				</section>
+
+				<section data-background-image="images/css-in-js-output.jpg" data-background-position="center top" data-background-color="#606060" data-state="hide-footer">
+					<h3 class="visually-hidden">CSS-in-JS class name output on Max Stoiber's website</h3>
+				</section>
+
+				<section>
+					<h3 class="h2-style">Why not use CSS-in-JS?</h3>
+					<ul class="larger">
+						<li>Separation of concerns</li>
+						<li>Migrating code is easier</li>
+						<li>Embrace the CSS cascade</li>
+						<li>Avoid invalid HTML markup</li>
+						<li>More inclusive tech stacks <span role="img" aria-label="purple heart" title="heart">💜</span></li>
+					</ul>
+				</section>
+
+				<section data-transition="none">
+					<h3>Don’t mess up user-stylesheets</h3>
+					<figure>
+						<pre><code class="jsx" data-trim data-line-numbers>
+	import React from 'react'
+	import { styled } from 'styled-components'
+
+	const MegaHeader = styled.header`
+	    background-color: rebeccapurple;
+	`
+	const Layout = () => {
+	  return (
+	    // add a stable CSS class
+	    &lt;MegaHeader className={`site-wrap`}>
+	      &lt;h1>My Gatsby Site&lt;/h1>
+	    &lt;/MegaHeader>
+	  )
+	}
+						</code></pre>
+						<figcaption><a href="https://codepen.io/marcysutton/pen/MRxxyM?editors=1010">https://codepen.io/marcysutton/pen/MRxxyM</a></figcaption>
+					</figure>
+				</section>
+
+				<section data-transition="none">
+					<h3>Don’t mess up user-stylesheets</h3>
+					<p class="visually-hidden">(className highlighted)</p>
+					<figure>
+						<pre><code class="jsx" data-trim data-line-numbers="10">
+	import React from 'react'
+	import { styled } from 'styled-components'
+
+	const MegaHeader = styled.header`
+	    background-color: rebeccapurple;
+	`
+	const Layout = () => {
+	  return (
+	    // add a stable CSS class
+	    &lt;MegaHeader className={`site-wrap`}>
+	      &lt;h1>My Gatsby Site&lt;/h1>
+	    &lt;/MegaHeader>
+	  )
+	}
+						</code></pre>
+						<figcaption><a href="https://codepen.io/marcysutton/pen/MRxxyM?editors=1010">https://codepen.io/marcysutton/pen/MRxxyM</a></figcaption>
+					</figure>
+				</section>
+
+				<section data-background-image="images/styled-components-noclass.jpg" data-background-position="center top" data-background-color="#606060" data-state="hide-footer">
+					<h3 class="visually-hidden">Styled-components output without CSS class</h3>
+				</section>
+				<section data-background-image="images/styled-components-class.jpg" data-background-position="center top" data-background-color="#606060" data-state="hide-footer">
+					<h3 class="visually-hidden">Styled-components output with CSS class</h3>
+				</section>
+
+				<section data-state="dark">
+					<h3 class="h2-style">You don’t have to use CSS-in-JS with&nbsp;Gatsby</h3>
+					<figure>
+						<img src="images/gatsby-monogram.png" alt="Gatsby logo" class="plain" style="max-height: 320px;" />
+					</figure>
+				</section>
+
+				<section>
+					<h3 class="h2-style">You can use regular CSS files <span role="img" title="smiling face">😀</span></h3>
+					<div class="inset">
+						<div class="skinnyCol twoThirdsCol">
+							<img src="images/gatsby-file-structure.png" alt="Gatsby file structure" class="plain" />	
+						</div>
+						<div class="wideCol twoThirdsCol insetTop">
+							<figure class="code">
+								<figcaption>gatsby-browser.js</figcaption>
+								<pre><code class="js" data-trim data-line-numbers>
+
+ import "./src/css/default.css"	
+
+								</code></pre>
+							</figure>
+							<figure class="code or top">
+								<figcaption>src/components/layout.js</figcaption>
+								<pre><code class="jsx" data-trim data-line-numbers="4">
+ import React from 'react'
+ import {useStaticQuery, graphql } from 'gatsby'
+ 
+ import "./src/css/default.css" // <-- yas!
+
+ import Header from './header'
+ import Footer from './footer'
+								</code></pre>
+							</figure>
+						</div>
+					</div>
+					<aside class="notes">Benefit of doing it this way: Gatsby will put the files through Webpack so they can be processed / compressed for performance. This includes any asset references - including images which will be turned into Base64 encoded strings under a certain file size</aside>
+				</section>
+
+				<section>
+					<h3 class="h2-style">You can use CSS modules <span role="img" title="thinking face">🤔</span></h3>
+						<figure class="code">
+							<figcaption>src/components/container.js</figcaption>
+							<pre><code class="jsx" data-trim data-line-numbers="5">
+  import React from "react"
+  import containerStyles from "./container.module.css"
+
+  export default ({ children }) => (
+    &lt;section className={containerStyles.container}>
+      {children}
+    &lt;/section>
+  )
+							</code></pre>
+						</figure>
+						<figure class="code">
+							<figcaption>src/components/container.module.css</figcaption>
+							<pre><code class="css" data-trim data-line-numbers>
+  .container {
+    margin: 3rem auto;
+    max-width: 600px;
+  }
+
+							</code></pre>
+						</figure>
+					</section>
+
+					<section>
+						<h3>Using a module in a Gatsby page</h3>
+						<div class="halfCol">
+							<figure class="code">
+								<figcaption>src/pages/about-css-modules.js</figcaption>
+								<pre><code class="jsx" data-trim>
+  import React from "react"
+
+  import Container from "../components/container"
+
+  export default () => (
+    <Container>
+      <h1>About CSS Modules</h1>
+      <p>CSS Modules are cool</p>
+    </Container>
+  )
+								</code></pre>
+							</figure>
+						</div>
+						<figure class="halfCol">
+							<img src="images/css-modules-basic.png" alt="CSS Modules are cool" class="plain" style="max-height: 30%;" />
+						</figure>
+
+						<p><a href="https://www.gatsbyjs.org/tutorial/part-two/">https://www.gatsbyjs.org/tutorial/part-two/</a></p>
+				</section>
+
+				<section>
+					<h2 class="h4-style">On CSS &amp; JS:</h2>
+					<h3 class="h2-style subhead">Working with team members?</h3>
+					<h3 class="h1-style">Honor their strengths.</h3>
+					<p class="fragment">Prototype UIs with HTML, CSS and little to no tooling <span role="img" title="fire">🔥</span></p>
+				</section>
+
+				<section>
+					<h1>Retro MarcySutton.com</h1>	
+				</section>
+
+				<section data-state="inverted hide-footer" data-background-image="images/css-is-awesome.png" data-background-size="contain">
 					<h2 class="visually-hidden">CSS is Awesome (overflowing its container because it's funny)</h2>
 				</section>
-				<section>
-					<h2>Thanks, CSUN!</h2>
+
+				<section data-state="hide-footer">
+					<h2>Thanks, An Event Apart!</h2>
 					<p>Slides: <a href="https://marcysutton.github.io/emerging-css-a11y">https://marcysutton.github.io/emerging-css-a11y</a></p>
 					<p>Twitter: <a href="https://twitter.com/marcysutton">https://twitter.com/marcysutton</a></p>
 					<p>Email: <a href="mailto:marcy@gatsbyjs.com">marcy@gatsbyjs.com</a></p>
-					<p style="margin-top:1em"><a href="https://marcysutton.com/prototype-testing-accessible-clientside-routing/">Bonus: Prototyping Accessible JavaScript Routing</a> (get in touch!)</p>
 				</section>
 			</div>
+			<footer role="contentinfo">
+				<p class="copyright">Emerging CSS & Accessibility<br>
+				<a href="https://twitter.com/marcysutton" target="_blank" title="Link opens in a new window">@marcysutton</a> <span aria-hidden="true">•</span> <a href="http://bit.ly/emerging-css-a11y" target="_blank" title="Link opens in a new window">bit.ly/emerging-css-a11y</a></p>
+			</footer>
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
@@ -457,9 +880,8 @@ p {
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; }
-					}
+					{ src: 'plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; }},
+					{ src: 'plugin/highlight/highlight.js', async: true },
 				]
 			});
 		</script>
