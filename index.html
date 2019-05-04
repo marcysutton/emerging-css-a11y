@@ -549,13 +549,13 @@ p {
 							<button id="tab2-ARIA" role="tab" aria-selected="false" aria-controls="tab2-tabpanel" tabindex="-1">Nutritional Info</button>
 							<button id="tab3-ARIA" role="tab" aria-selected="false" aria-controls="tab3-tabpanel" tabindex="-1">Feeding Instructions</button>
 						</div>
-						<div class="tab-content" tabindex="0" role="tabpanel" id="tab1-tabpanel" aria-labelledby="tab1-ARIA">
+						<div class="tab-content" tabindex="-1" role="tabpanel" id="tab1-tabpanel" aria-labelledby="tab1-ARIA">
 							<p>With wholesome fruits and veggies like carrots, dried kelp and blueberries, your dog is getting beneficial fiber, phytonutrients and antioxidants. Omega fatty acids are plentiful, including DHA, an omega-3 that supports healthy development of the brain and eyes. These omegas come from several sources like salmon oil and flaxseed, and they help keep your fellow adventurer’s skin and coat healthy. This recipe is grain-free and has no corn, wheat or soy, which makes it a great choice for dogs that are prone to food sensitivities.</p>
 						</div>
-						<div class="tab-content" tabindex="0" role="tabpanel" id="tab2-tabpanel" aria-labelledby="tab2-ARIA" hidden>
+						<div class="tab-content" tabindex="-1" role="tabpanel" id="tab2-tabpanel" aria-labelledby="tab2-ARIA" hidden>
 							<p>Deboned Salmon, Chicken Meal, Turkey Meal, Peas, Sweet Potatoes, Chickpeas, Pea Protein, Chicken Fat (Preserved with Mixed Tocopherols), Dried Plain Beet Pulp, Natural Flavor, Flaxseed, Menhaden Fish Meal, Blueberries, Carrots, Salt, Salmon Oil, Dried Kelp, Fructooligosaccharides, Choline Chloride, Vitamin E Supplement, Mixed Tocopherols (Preservative), Ferrous Sulfate, Zinc Proteinate.</p>
 						</div>
-						<div class="tab-content" tabindex="0" role="tabpanel" id="tab3-tabpanel" aria-labelledby="tab3-ARIA" hidden>
+						<div class="tab-content" tabindex="-1" role="tabpanel" id="tab3-tabpanel" aria-labelledby="tab3-ARIA" hidden>
 							<table>
 								<thead>
 								<tr><th>Weight</th><th>Daily Feeding (Cup)</th><th>Calories (Day)</th></tr>
@@ -576,25 +576,42 @@ p {
 						</div>
 					</div>
 					<script>
-						var tabs = document.querySelectorAll('tabs');
-						
-						// function delay () {
-						// 	var toggles = document.toggleBox.toggles;
-						// 	var radios = document.toggleboxForm.toggleInputs;
-						// 	var prevSelection = null;
-						// 	for (var i = 0; i < radios.length; i++) {
-						// 		radios[i].addEventListener('change', function(event) {
-						// 			var that = this;
-						// 			if (that !== prevSelection) {
-						// 				prevSelection = that;
-						// 			}
-						// 			for (var k = 0; k < toggles.length; k++) {
-						// 				toggles[k].setAttribute('type', prevSelection.value);
-						// 			}
-						// 		});
-						// 	}
-						// }
-						// window.setTimeout(delay, 1000);
+						function delay () {
+							var tabs = document.querySelectorAll('.tabSwitcher-ARIA-tabs button[role="tab"]');
+							var tabsArray = Array.from(tabs);
+							var currentTabIndex = 0;
+
+							function getTabRef(tab) {
+								return document.querySelector('#' + tab.getAttribute('aria-controls'));
+							}
+							function unsetTabs() {
+								tabsArray.forEach(function(tab, index) {
+									tab.setAttribute('aria-selected', 'false');
+									getTabRef(tab).setAttribute('hidden', '');
+								})
+							}
+							function currentTab (index, tabRef) {
+								tabs[index].setAttribute('aria-selected', 'true');
+								tabRef.removeAttribute('hidden');
+								currentTabIndex = index;
+							}
+							tabsArray.forEach(function(tab, index) {
+								tab.addEventListener('click', function(event) {
+									var tabRef = getTabRef(tab);
+									unsetTabs();
+									currentTab(index, tabRef);
+									console.log(tabRef);
+								});
+								tab.addEventListener('keydown', function(event) {
+									if (event.keyCode === 37 || event.keyCode === 39) {
+										event.stopPropagation();
+										
+										
+									}
+								})
+							});
+						}
+						window.setTimeout(delay, 1000);
 					</script>
 				</section>
 

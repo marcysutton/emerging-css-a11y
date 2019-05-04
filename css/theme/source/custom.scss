@@ -515,7 +515,7 @@ data-focus-visible-added {
 
   button[role="tab"] {
     background-color: #f9f9f9;
-    border-radius: none;
+    border-radius: 0;
     margin: 0;
   }
   .tab {
@@ -538,6 +538,7 @@ data-focus-visible-added {
     border: 1px solid #ddd;
     color: $darkAccentColor;
     cursor: pointer;
+    display: block;
     line-height: 1;
     padding: .5em 1em;
   }
