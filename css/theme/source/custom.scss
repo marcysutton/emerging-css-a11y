@@ -72,6 +72,12 @@ $mobile: 'screen and (max-width: 600px)';
   }
   .larger {
     font-size: 1.25em;
+    li {
+      margin-bottom: 0.25em;
+    }
+  }
+  p.larger {
+    font-size: 1.45em;
   }
   .warning {
     background-color: red;
@@ -103,6 +109,20 @@ $mobile: 'screen and (max-width: 600px)';
     height: 1px; width: 1px;
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
+  }
+  ul.no-bullets {
+    list-style: none;
+  }
+  .recap {
+    font-size: 1.1em;
+    li {
+      margin-bottom: 0.5em;
+    }
+  }
+  ul.defs {
+    li {
+      margin-bottom: 1em;
+    }
   }
   .progress {
     background-color: $darkAccentColor;
@@ -433,9 +453,13 @@ $mobile: 'screen and (max-width: 600px)';
   }
 
   p code,
-  li code {
+  li code,
+  h2 code,
+  h3 code,
+  h4 code {
     background-color: rgba(0,0,0,0.25);
     display: inline-block;
+    font-style: normal;
     padding: 0.005em 0.15em;
   }
   button, [role=button] {
@@ -514,8 +538,10 @@ data-focus-visible-added {
   }
 
   button[role="tab"] {
-    background-color: #f9f9f9;
     border-radius: 0;
+    font-family: $mainFont;
+    font-size: 1em;
+    float: left;
     margin: 0;
   }
   .tab {
@@ -527,12 +553,6 @@ data-focus-visible-added {
     cursor: pointer;
     padding: .5em 1em;
   }
-  button[role="tab"] {
-    border-radius: 0;
-    font-size: 1em;
-    font-family: $mainFont;
-    float: left;
-  }
   .tab label, button[role="tab"] {
     background-color: #c0c0c0;
     border: 1px solid #ddd;
@@ -541,6 +561,9 @@ data-focus-visible-added {
     display: block;
     line-height: 1;
     padding: .5em 1em;
+  }
+  button[role="tab"]:focus {
+    outline: 4px dotted hotpink;
   }
 
   // Visually hide radio buttons
