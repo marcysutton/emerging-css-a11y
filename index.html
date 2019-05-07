@@ -500,14 +500,14 @@ p {
 					<p><img src="images/friend-hovering.gif" alt="" /></p>
 				</section>
 				<section>
-					<h3>Animation example</h3>
+					<h3>Animation example - a good start</h3>
 					<iframe height="600" style="width: 100%;" scrolling="no" title="Card flip - focus with animation testing" src="//codepen.io/marcysutton/embed/WBvzav/?height=300&theme-id=11082&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 						See the Pen <a href='https://codepen.io/marcysutton/pen/WBvzav/'>Card flip - focus with animation testing</a> by Marcy Sutton
 						(<a href='https://codepen.io/marcysutton'>@marcysutton</a>) on <a href='https://codepen.io'>CodePen</a>.
 					</iframe>
 				</section>
 				<section>
-					<h3>Animation example - now with focus!</h3>
+					<h3>Animation example - handling focus</h3>
 					<iframe height="600" style="width: 100%;" scrolling="no" title="Card flip - focus with animation testing" src="//codepen.io/marcysutton/embed/joPLOV/?height=300&theme-id=11082&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 						See the Pen <a href='https://codepen.io/marcysutton/pen/joPLOV/'>Card flip - focus with animation testing</a> by Marcy Sutton
 						(<a href='https://codepen.io/marcysutton'>@marcysutton</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -515,9 +515,9 @@ p {
 				</section>
 				<section>
 					<h3>Animation & Focus Tips</h3>
-					<p>Keyboard focus in dynamic animated regions is hard.</p>
+					<h4 class="subhead">Keyboard focus in dynamic animated regions is hard.</h4>
 					<div><span role="img" title="huffing with anger face">😤</span></div>
-					<ul>
+					<ul class="larger">
 						<li class="fragment"><code>window.setTimeout</code> is the most common of hacks</li>
 						<li class="fragment">The <code>transitionend</code> <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionend_event">event</a> is a better tool</li>
 						<li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">MutationObserver</a> could work</li>
@@ -809,7 +809,7 @@ p {
 
 				<section>
 					<p class="subhead">Why CSS-in-JS again?</p>
-					<h3 class="h2-style">It can be worth it to:</h3>
+					<h3 class="h2-style">It can be worth it:</h3>
 					<ul class="larger">
 						<li>Scope styles in components</li>
 						<li>Eliminate dead code</li>
@@ -997,17 +997,14 @@ p {
 					<p class="larger"><a href="https://marcysutton.com/web-accessibility-resources">https://marcysutton.com/web-accessibility-resources</a></p>
 				</section>
 
-				<section data-state="inverted" data-background-image="images/css-is-awesome.png" data-background-size="contain">
-					<h2 class="visually-hidden">CSS is Awesome (overflowing its container because it's funny)</h2>
-				</section>
-
-				<section >
+				<section>
 					<h2>Thanks, An Event Apart!</h2>
 					<ul class="no-bullets larger">
 						<li>Slides: <a href="http://slides.aneventapart.com/boston-2019/">http://slides.aneventapart.com/boston-2019/</a></li>
 						<li>Twitter: <a href="https://twitter.com/marcysutton">https://twitter.com/marcysutton</a></li>
 						<li>Email: <a href="mailto:marcy@gatsbyjs.com">marcy@gatsbyjs.com</a></li>
 					</ul>
+					<img src="images/css-is-awesome.png" alt="CSS is awesome meme" class="plain" style="background-color:white; max-height: 200px; margin-top: 1em;" />
 				</section>
 			</div>
 		</div>
