@@ -79,10 +79,13 @@
 					<h2>Working Together</h2>
 					<img src="images/tandem-biking.jpg" alt="Tandem biking at CSUN" class="plain" />
 				</section>
-				<section data-background-image="images/marcysutton-2011-about.jpg" data-transition="none" >
+				<section data-background-image="images/msft-inclusive-design.jpg" data-transition="none" data-background-position="center top">
+					<h1 class="visually-hidden">Microsoft's Inclusive Design Toolkit</h1>
+				</section>
+				<section data-background-image="images/marcysutton-2011-about.jpg" data-transition="none">
 					<h1 class="visually-hidden">MarcySutton.com About page in 2011</h1>
 				</section>
-				<section data-background-image="images/marcysutton-2011-cufon.gif" data-transition="none" >
+				<section data-background-image="images/marcysutton-2011-cufon.gif" data-transition="none">
 					<h1 class="visually-hidden">MarcySutton.com in 2011: It used the Cufon font rendering technique</h1>
 				</section>
 				<section data-background-image="images/cufon.png" data-transition="none" data-state="light-background">
@@ -542,6 +545,15 @@ p {
 	}
 					</code></pre>
 				</section>
+
+				<section>
+          <h3 class="h2-style">Motion Sickness Warning</h3>
+        </section>
+
+        <section data-state="light-background" data-state="hide-footer" data-background-video="images/NarrowDesign.mp4" data-background-video-loop="false">
+          <h3 class="visually-hidden">NarrowDesign.com</h3>
+        </section>
+				
 				<section>
 					<h3>Reduced Motion Demo</h3>
 					<p>(flashing content warning)</p>
@@ -820,7 +832,7 @@ p {
 
 				<section data-transition="none">
 					<h3>Don’t mess up user-stylesheets</h3>
-					<h4 class="subhead">Cached filenames aren't human friendly, e.g. <code>class="sc-bdVaJa"</code></h4>
+					<h4 class="subhead">Cached class names aren't human friendly, e.g. <code>class="sc-bdVaJa"</code></h4>
 					<figure>
 						<pre><code class="jsx" data-trim data-line-numbers>
 	import React from 'react'
@@ -844,7 +856,7 @@ p {
 
 				<section data-transition="none">
 					<h3>Don’t mess up user-stylesheets</h3>
-					<h4 class="subhead">Cached filenames aren't human friendly, e.g. <code>class="sc-bdVaJa"</code></h4>
+					<h4 class="subhead">Cached class names aren't human friendly, e.g. <code>class="sc-bdVaJa"</code></h4>
 					<p class="visually-hidden">(className highlighted)</p>
 					<figure>
 						<pre><code class="jsx" data-trim data-line-numbers="10">
@@ -915,9 +927,9 @@ p {
 
 				<section>
 					<h3 class="h2-style">You can use CSS modules <span role="img" title="thinking face">🤔</span></h3>
-						<figure class="code">
-							<figcaption>src/components/container.js</figcaption>
-							<pre><code class="jsx" data-trim data-line-numbers="5">
+					<figure class="code">
+						<figcaption>src/components/container.js</figcaption>
+						<pre><code class="jsx" data-trim data-line-numbers="5">
   import React from "react"
   import containerStyles from "./container.module.css"
 
@@ -926,44 +938,19 @@ p {
       {children}
     &lt;/section>
   )
-							</code></pre>
-						</figure>
-						<figure class="code">
-							<figcaption>src/components/container.module.css</figcaption>
-							<pre><code class="css" data-trim data-line-numbers>
+						</code></pre>
+					</figure>
+					<figure class="code">
+						<figcaption>src/components/container.module.css</figcaption>
+						<pre><code class="css" data-trim data-line-numbers>
   .container {
     margin: 3rem auto;
     max-width: 600px;
   }
 
-							</code></pre>
-						</figure>
-					</section>
-
-					<section>
-						<h3>Using a module in a Gatsby page</h3>
-						<div class="halfCol">
-							<figure class="code">
-								<figcaption>src/pages/about-css-modules.js</figcaption>
-								<pre><code class="jsx" data-trim>
-  import React from "react"
-
-  import Container from "../components/container"
-
-  export default () => (
-    <Container>
-      <h1>About CSS Modules</h1>
-      <p>CSS Modules are cool</p>
-    </Container>
-  )
-								</code></pre>
-							</figure>
-						</div>
-						<figure class="halfCol">
-							<img src="images/css-modules-basic.png" alt="CSS Modules are cool" class="plain" style="max-height: 30%;" />
-						</figure>
-
-						<p><a href="https://www.gatsbyjs.org/tutorial/part-two/">https://www.gatsbyjs.org/tutorial/part-two/</a></p>
+						</code></pre>
+					</figure>
+					<p><a href="https://www.gatsbyjs.org/tutorial/part-two/">https://www.gatsbyjs.org/tutorial/part-two/</a></p>
 				</section>
 
 				<section>
