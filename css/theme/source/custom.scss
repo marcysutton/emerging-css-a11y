@@ -435,6 +435,19 @@ $mobile: 'screen and (max-width: 600px)';
   }
 }
 .reveal {
+  dialog {
+    background-color: $codeBgColor;
+    color: $fgColor;
+  }
+  dialog #closeBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &:before {
+      content: 'X';
+    }
+  }
   .responsive-video {
     position: relative;
     padding-bottom: 75%;

@@ -7,6 +7,7 @@
 		<title>Emerging CSS and Accessibility</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="./lib/css/dialog-polyfill.css">
 		<link href="https://fonts.googleapis.com/css?family=Spectral:800,800i" rel="stylesheet">
 		<link rel="stylesheet" href="css/theme/custom.css">
 
@@ -42,9 +43,12 @@
 				<section data-background-image="images/captain-marvel.jpg" data-transition="none"  data-background-position="center top">
 					<h1 class="visually-hidden">Captain Marvel: it's new but made to look old!</h1>
 				</section>
-				<!--<section data-background-image="images/captain-marvel-inspect.gif" data-transition="none" data-state="hide-footer">
+				<section data-background-image="images/captain-marvel-inspect.gif" data-transition="none"  data-background-position="center top">
 					<h1 class="visually-hidden">Inspecting Captain Marvel in Chrome DevTools</h1>
-				</section>-->
+				</section>
+				<section data-background-image="images/captain-marvel.jpg" data-transition="none"  data-background-position="center top">
+					<h1 class="visually-hidden">Captain Marvel: it's new but made to look old!</h1>
+				</section>
 				<section data-state="title-slide">
 					<h1>Emerging CSS Techniques &amp;&nbsp;What They Mean for&nbsp;Accessibility</h1>
 					<h2>By Marcy Sutton<br />
@@ -109,10 +113,6 @@
 					<aside class="notes">
 						back in the &lt; IE9 days....
 					</aside>
-				</section>
-				<section>
-					<h2>PSD sliced table layouts with text embedded in images?</h2>
-					<p><span class="emoji" aria-label="woman raising both hands">🙆‍♀️</span></p>
 				</section>
 				<section>
 					<h2>All Flash everything?</h2>
@@ -234,7 +234,7 @@
 					<p><code>display:contents</code> and <code>table {display: block}</code> come to mind...</p>
 					<p class="fragment" style="margin-top: 1em;"><a href="https://hiddedevries.nl/en/blog/2018-04-21-more-accessible-markup-with-display-contents">Hidde de Vries on Grid and display: contents</a></p>
 				</section>
-				<section data-background-color="#606060" data-background-image="images/aea-grid-inspect1.png" data-background-size="contain" data-background-position="center -15px" data-transition="none">
+				<!--<section data-background-color="#606060" data-background-image="images/aea-grid-inspect1.png" data-background-size="contain" data-background-position="center -15px" data-transition="none">
 					<h3 class="visually-hidden">An Event Apart.com grid use - Chrome devtools inspection 1</h3>
 				</section>
 				<section data-background-color="#606060" data-background-image="images/aea-grid-inspect2.png" data-background-size="contain" data-background-position="center -15px" data-transition="none">
@@ -255,7 +255,7 @@
 				<section data-background-color="#606060" data-background-image="images/webaim-nvda.png" data-background-size="contain" data-background-position="center top" data-transition="none">
 					<h3 class="visually-hidden">WebAIM NVDA article</h3>
 					<aside class="notes">http://www.webaim.org/articles/nvda/</aside>
-				</section>
+				</section>-->
 				<section>
 					<h3><span aria-hidden="true">🚨</span> CSS Grid Order <span aria-label="alert">🚨</span></h3>
 					<blockquote>
@@ -270,7 +270,6 @@
 						ORDER<br />
 						<span class="subhead">and interactive controls</span>
 					</h3>
-					<p><span title="Woman raising hand" class="emoji">💁‍♀️</span></p>
 				</section>
 				<section>
 					<h3 class="visually-hidden">Caniuse.com for CSS Grid</h3>
@@ -455,7 +454,7 @@ import 'what-input'
 						<li>Use SVG!</li>
 						<li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">Not all CSS can be animated</a></li>
 					</ul>
-					<p class="fragment" style="margin-top: 1em;"><a href="https://twitter.com/sarah_edo">Sarah Drasner</a> is a pro at this</p>
+					<!--<p class="fragment" style="margin-top: 1em;"><a href="https://twitter.com/sarah_edo">Sarah Drasner</a> is a pro at this</p>-->
 				</section>
 				<section>
 					<h3>Animation example</h3>
@@ -505,13 +504,13 @@ p {
 					<h2 class="visually-hidden">Animation demo: card flip</h2>
 					<p><img src="images/friend-hovering.gif" alt="" /></p>
 				</section>
-				<section>
+				<!--<section>
 					<h3>Animation example - a good start</h3>
 					<iframe height="600" style="width: 100%;" scrolling="no" title="Card flip - focus with animation testing" src="//codepen.io/marcysutton/embed/WBvzav/?height=300&theme-id=11082&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 						See the Pen <a href='https://codepen.io/marcysutton/pen/WBvzav/'>Card flip - focus with animation testing</a> by Marcy Sutton
 						(<a href='https://codepen.io/marcysutton'>@marcysutton</a>) on <a href='https://codepen.io'>CodePen</a>.
 					</iframe>
-				</section>
+				</section>-->
 				<section>
 					<h3>Animation example - handling focus</h3>
 					<iframe height="600" style="width: 100%;" scrolling="no" title="Card flip - focus with animation testing" src="//codepen.io/marcysutton/embed/joPLOV/?height=300&theme-id=11082&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
@@ -548,14 +547,6 @@ p {
 	}
 					</code></pre>
 				</section>
-
-				<section>
-          <h3 class="h2-style">Motion Sickness Warning</h3>
-        </section>
-
-        <section data-state="light-background" data-state="hide-footer" data-background-video="images/NarrowDesign.mp4" data-background-video-loop="false">
-          <h3 class="visually-hidden">NarrowDesign.com</h3>
-        </section>
 				
 				<section>
 					<h3>Reduced Motion Demo</h3>
@@ -627,7 +618,7 @@ p {
 					</form>
 				</section>
 
-				<section >
+				<section>
 					<h3>JavaScript and ARIA are BFFs<br />
 						<span class="subhead">for accessible custom widgets</span>
 					</h3>
@@ -724,10 +715,44 @@ p {
 				</section>
 
 				<section>
+					<h2>Bonus pattern: modal dialogs</h2>
+					<button id="launchBtn">Launch dialog</button>
+					<dialog id="dialogDemo">
+						<button id="closeBtn" aria-label="Close dialog"></button>
+						<h2>Newsletter sign-up</h2>
+						<p>Text goes here</p>
+					</dialog>
+					<script>
+						function delayModalDemo () {
+							var dialog = document.querySelector('#dialogDemo');
+							dialogPolyfill.registerDialog(dialog);
+							var launchBtn = document.querySelector('#launchBtn');
+							var closeBtn = document.querySelector('#closeBtn');
+							function stopAdvance(event) {
+								event.stopPropagation();
+							}
+							function launchDialog(event) {
+								dialog.showModal();
+								closeBtn.addEventListener('keydown', stopAdvance);
+								closeBtn.addEventListener('click', closeDialog);
+							}
+							function closeDialog(event) {
+								dialog.close();
+								closeBtn.removeEventListener('click', closeDialog);
+								launchBtn.focus();
+							}
+							launchBtn.addEventListener('click', launchDialog);
+							launchBtn.addEventListener('keydown', stopAdvance);
+						}
+						window.setTimeout(delayModalDemo, 1000);
+					</script>
+				</section>
+
+				<section>
 					<h3>Accessible Rich Internet&nbsp;Applications<br />(ARIA)</h3>
 					<ul class="defs">
 						<li><strong>role</strong>: what is it? <br /><code>role="tab"</code></li>
-						<li><strong>state</strong>: what is the current state of it? <br /><code>aria-selected="true"</code></li>
+						<li><strong>state</strong>: what is the current state of it? <br /><code>aria-selected="false"</code><br /><code>aria-hidden="true"</code></li>
 						<li><strong>property</strong>: what qualities does it have? <br /><code>aria-label="Favorites"</code></li>
 					</ul>
 					<p style="margin-top:1em"><small><a href="https://www.w3.org/WAI/PF/aria/states_and_properties">https://www.w3.org/WAI/PF/aria/states_and_properties</a></small></p>
@@ -776,8 +801,7 @@ p {
 					</ul>
 					<div class="fragment">
 						<img class="plain" src="images/the-great-debate.png" style="margin: 0 0 0 1em; max-width:20%;" alt="The Great Debate" />
-						<img class="plain" src="images/dumpster-fire.gif" alt="Cute dumpster on fire" style="margin: 0; max-width:20%;" /></div>
-					<aside class="notes">https://giphy.com/100soft</aside>
+						<img class="plain" src="images/dumpster-fire.png" alt="Cute dumpster on fire" style="margin: 0 0 1em; max-width:15%;" /></div>
 				</section>
 
 				<section data-background-image="images/brad-frost-css-in-js.jpg" data-background-position="center top" data-background-color="#606060" >
@@ -822,7 +846,7 @@ p {
 					</ul>
 				</section>
 
-				<section>
+				<!--<section>
 					<p class="subhead">Why CSS-in-JS again?</p>
 					<h3 class="h2-style">It can be worth it:</h3>
 					<ul class="larger">
@@ -831,7 +855,7 @@ p {
 						<li>Encourage fast performance</li>
 						<li>Powerful, programmatic styling</li>
 					</ul>
-				</section>
+				</section>-->
 
 				<section data-transition="none">
 					<h3>Don’t mess up user-stylesheets</h3>
@@ -897,7 +921,7 @@ p {
 				</section>
 
 				<section>
-					<h3 class="h2-style">You can use regular CSS files <span role="img" title="smiling face">😀</span></h3>
+					<h3 class="h2-style">You can use regular CSS files!</h3>
 					<div class="inset">
 						<div class="skinnyCol twoThirdsCol">
 							<img src="images/gatsby-file-structure.png" alt="Gatsby file structure" class="plain" />	
@@ -929,7 +953,7 @@ p {
 				</section>
 
 				<section>
-					<h3 class="h2-style">You can use CSS modules <span role="img" title="thinking face">🤔</span></h3>
+					<h3 class="h2-style">You can use CSS modules!</h3>
 					<figure class="code">
 						<figcaption>src/components/container.js</figcaption>
 						<pre><code class="jsx" data-trim data-line-numbers="5">
@@ -963,22 +987,22 @@ p {
 					<p class="fragment">Prototype UIs with HTML, CSS and little to no tooling <span role="img" title="fire">🔥</span></p>
 				</section>
 
-				<section data-background-image="images/retro-marcysuttoncom.jpg" data-background-color="#000" data-background-position="center top">
+				<!--<section data-background-image="images/retro-marcysuttoncom.jpg" data-background-color="#000" data-background-position="center top">
 					<h2 class="visually-hidden">Retro MarcySutton.com</h2>	
 				</section>
 
 				<section data-background-image="images/retro-marcysuttoncom-scroll.jpg" data-background-color="#000" data-background-position="center top">
 					<h2 class="visually-hidden">Retro MarcySutton.com scrolled</h2>
-				</section>
+				</section>-->
 
 				<section>
-					<h2>Recap</h2>
+					<h2 class="h1-style">Recap</h2>
 					<ul class="recap no-bullets">
-						<li><span role="img" title="raised hands">🙌</span> CSS is FUN and designs can absolutely be made accessible</li>
-						<li class="fragment"><span role="img" title="alert">🚨</span> Beware of flex & grid order vs. source order</li>
-						<li class="fragment"><span role="img" title="Superhero">🦸‍♀️</span> <code>:focus-visible</code> <code>:focus-within</code> === styling powers</li>
-						<li class="fragment"><span role="img" title="test tube">🧪</span> Test focus in animated elements</li>
-						<li class="fragment"><span role="img" title="shrug">🤷‍♀️</span> CSS-in-JS is common for good reasons, even if we don’t all like it</li>
+						<li>CSS is FUN and designs can absolutely be made accessible</li>
+						<li class="fragment">Beware of flex & grid order vs. source order</li>
+						<li class="fragment"><code>:focus-visible</code> <code>:focus-within</code> === styling powers</li>
+						<li class="fragment">Test focus in animated elements</li>
+						<li class="fragment">CSS-in-JS is common for good reasons, even if we don’t all like it</li>
 					</ul>
 				</section>
 
@@ -988,9 +1012,9 @@ p {
 				</section>
 
 				<section>
-					<h2>Thanks, An Event Apart!</h2>
+					<h2>Thanks!</h2>
 					<ul class="no-bullets larger">
-						<li>Slides: <a href="http://slides.aneventapart.com/boston-2019/">http://slides.aneventapart.com/boston-2019/</a></li>
+						<li>Slides: <a href="https://marcysutton.github.io/emerging-css-a11y">https://marcysutton.github.io/emerging-css-a11y</a></li>
 						<li>Twitter: <a href="https://twitter.com/marcysutton">https://twitter.com/marcysutton</a></li>
 						<li>Email: <a href="mailto:marcy@gatsbyjs.com">marcy@gatsbyjs.com</a></li>
 					</ul>
@@ -1033,5 +1057,6 @@ p {
 			});
 		</script>
 		<script src="/node_modules/focus-visible/dist/focus-visible.min.js"></script>
+		<script src="./lib/js/dialog-polyfill.js"></script>
 	</body>
 </html>
