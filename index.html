@@ -347,6 +347,13 @@
 					<h3 class="visually-hidden">Caniuse.com for CSS Flexbox</h3>
 					<p><img src="images/caniuse-flexbox-050719.png" alt="" /></p>
 				</section>
+
+				<section>
+					<h2>Focus styles are !important</h2>
+					<img src="images/magnification-a11y.png" alt="screen magnification demo with cut-off focus styles" style="max-width: 40%;" class="plain" />
+					<p><span style="font-size: 0.8em"><a href="https://www.gatsbyjs.org/blog/2019-07-11-user-testing-accessible-client-routing/">https://www.gatsbyjs.org/blog/2019-07-11-user-testing-accessible-client-routing/</a></span></p>
+				</section>
+
 				<section>
 					<h2 class="h1-style">:focus-visible</h2>
 					<pre><code class="css">
@@ -394,6 +401,10 @@
 						Note: The intent of :focus-visible is to allow authors to provide clearly identifiable focus styles which are visible when a user is likely to need to understand where focus is, and not visible in other cases.
 					</blockquote>
 					<h4 class="fragment h3-style">More specific tools at our disposal prevent <code>outline: none</code></h4>
+				</section>
+				<section>
+					<h3 class="h1-style">Ideally: make focus personalized</h3>
+					<p><span role="img" title="ring">💍</span><span role="img" title="option checked"> ☑️</span></p>️
 				</section>
 				<section>
 					<h3 class="visually-hidden">Caniuse.com for CSS focus-visible</h3>
@@ -527,7 +538,7 @@ p {
 						<li class="fragment">The <code>transitionend</code> <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/transitionend_event">event</a> is a better tool</li>
 						<li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">MutationObserver</a> could work</li>
 						<li class="fragment">You could also try the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API">Web Animations API</a></li>
-						<li class="fragment">Or a big negative CSS <code>transition-delay</code></li>
+						<li class="fragment">React: the <a href="https://reactjs.org/docs/hooks-reference.html#useeffect">useEffect hook</a> or maybe <a href="https://reactjs.org/docs/react-api.html#reactsuspense">Suspense</a></li>
 					</ul>
 				</section>
 				<section>
@@ -983,7 +994,7 @@ p {
 				<section>
 					<h2 class="h4-style">On CSS &amp; JS:</h2>
 					<h3 class="h2-style subhead">Working with team members?</h3>
-					<h3 class="h1-style">Honor their strengths.</h3>
+					<h3 class="h1-style">Honor their strengths!</h3>
 					<p class="fragment">Prototype UIs with HTML, CSS and little to no tooling <span role="img" title="fire">🔥</span></p>
 				</section>
 
