@@ -435,19 +435,6 @@ $mobile: 'screen and (max-width: 600px)';
   }
 }
 .reveal {
-  dialog {
-    background-color: $codeBgColor;
-    color: $fgColor;
-  }
-  dialog #closeBtn {
-    position: absolute;
-    right: 0;
-    top: 0;
-
-    &:before {
-      content: 'X';
-    }
-  }
   .responsive-video {
     position: relative;
     padding-bottom: 75%;
@@ -490,6 +477,27 @@ $mobile: 'screen and (max-width: 600px)';
 /*********************************************
  * Custom Slides
  *********************************************/
+.reveal {
+  dialog {
+    background-color: $codeBgColor;
+    color: $fgColor;
+  }
+  dialog #closeBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &:before {
+      content: 'X';
+    }
+  }
+  dialog::backdrop { /* native */
+    background-color: rgba(0,0,0,0.7);
+  }
+  dialog + .backdrop { /* polyfill */
+    background-color: rgba(0,0,0,0.7);
+  }
+}
  .focus-visible-example {
    input[type=checkbox] {
       transform-origin: bottom;

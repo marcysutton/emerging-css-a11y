@@ -624,17 +624,6 @@ body {
     .reveal .layeredFragments.wordcloud .fragment {
       position: absolute; }
 
-.reveal dialog {
-  background-color: #2d2c2c;
-  color: #fff; }
-
-.reveal dialog #closeBtn {
-  position: absolute;
-  right: 0;
-  top: 0; }
-  .reveal dialog #closeBtn:before {
-    content: 'X'; }
-
 .reveal .responsive-video {
   position: relative;
   padding-bottom: 75%;
@@ -679,6 +668,25 @@ body {
 /*********************************************
  * Custom Slides
  *********************************************/
+.reveal dialog {
+  background-color: #2d2c2c;
+  color: #fff; }
+
+.reveal dialog #closeBtn {
+  position: absolute;
+  right: 0;
+  top: 0; }
+  .reveal dialog #closeBtn:before {
+    content: 'X'; }
+
+.reveal dialog::backdrop {
+  /* native */
+  background-color: rgba(0, 0, 0, 0.7); }
+
+.reveal dialog + .backdrop {
+  /* polyfill */
+  background-color: rgba(0, 0, 0, 0.7); }
+
 .focus-visible-example input[type=checkbox] {
   transform-origin: bottom;
   transform: scale(2.5, 2.5); }

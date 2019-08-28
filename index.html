@@ -6,8 +6,8 @@
 
 		<title>Emerging CSS and Accessibility</title>
 
+		<link rel="stylesheet" href="lib/css/dialog-polyfill.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="./lib/css/dialog-polyfill.css">
 		<link href="https://fonts.googleapis.com/css?family=Spectral:800,800i" rel="stylesheet">
 		<link rel="stylesheet" href="css/theme/custom.css">
 
@@ -728,11 +728,6 @@ p {
 				<section>
 					<h2>Bonus pattern: modal dialogs</h2>
 					<button id="launchBtn">Launch dialog</button>
-					<dialog id="dialogDemo">
-						<button id="closeBtn" aria-label="Close dialog"></button>
-						<h2>Newsletter sign-up</h2>
-						<p>Text goes here</p>
-					</dialog>
 					<script>
 						function delayModalDemo () {
 							var dialog = document.querySelector('#dialogDemo');
@@ -1032,6 +1027,12 @@ p {
 					<img src="images/css-is-awesome.png" alt="CSS is awesome meme" class="plain" style="background-color:white; max-height: 200px; margin-top: 1em;" />
 				</section>
 			</div>
+
+			<dialog id="dialogDemo">
+				<button id="closeBtn" aria-label="Close dialog"></button>
+				<h2>Newsletter sign-up</h2>
+				<p>Text goes here</p>
+			</dialog>
 		</div>
 
 		<script src="js/reveal.js"></script>
@@ -1067,7 +1068,7 @@ p {
 				]
 			});
 		</script>
-		<script src="/node_modules/focus-visible/dist/focus-visible.min.js"></script>
-		<script src="./lib/js/dialog-polyfill.js"></script>
+		<script src="lib/js/focus-visible.min.js"></script>
+		<script src="lib/js/dialog-polyfill.js"></script>
 	</body>
 </html>
